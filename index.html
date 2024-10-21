@@ -67,6 +67,14 @@
         </select>
     </div>
 
+   
+    
+    <div id="uploadSection">
+        <label for="stlFile">(not required) Upload .STL File:</label>
+        <input type="file" id="stlFile" accept=".stl" onchange="calculateSurfaceArea()">
+        <p id="areaResult"></p>
+    </div>
+
     <div class="input-field">
         <label for="surfaceArea">Surface Area (dm²):</label>
         <input type="number" id="surfaceArea" placeholder="Enter surface area">
@@ -95,11 +103,29 @@
     <button class="button" onclick="calculateCost()">Calculate Cost</button>
 
     <div class="result" id="result"></div>
-</div>
+
 
 <button onclick="document.getElementById('sectionID').style.display = document.getElementById('sectionID').style.display === 'none' ? 'block' : 'none';">View Raw Data Document</button>
 
+</div>
+
 <script>
+    function calculateSurfaceArea() {
+        const fileInput = document.getElementById('stlFile');
+        const file = fileInput.files[0];
+
+        if (file) {
+            // Implement your STL file parsing and surface area calculation logic here
+            // This is just a placeholder for demonstration purposes
+            const surfaceArea = Math.random() * 100; // Replace with actual calculation
+
+            // Display the result
+            document.getElementById('areaResult').innerText = `Estimated Surface Area: ${surfaceArea.toFixed(2)} dm²`;
+        } else {
+            document.getElementById('areaResult').innerText = 'Please upload a valid .STL file.';
+        }
+    }
+
     function calculateCost() {
         // Get user inputs
         const materialDropdown = document.getElementById('material');
@@ -158,10 +184,10 @@
     }
 </script>
 
-<div id="sectionID">
+<div id="sectionID" style="display: none;">
    
         <p align="center">&nbsp;</p>
-        <p align="left"><font size="4"><strong>ELECTROPLATING COSTS CALCULATION</strong></font><br>
+        <p align="left"><font size="4"><strong>ELECTROPLATING COSTS CALCULATION SOURCE: https://polynet.dk/ingpro/surface/elecomk.htm</strong></font><br>
         <br>
         Andrea Mazzilli, Manuf. Eng. &amp; Torben Lenau Ass. Prof. Ph.D.<br>
         Department of Manufacturing Engineering<br>
