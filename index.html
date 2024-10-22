@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,29 +10,37 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+
         h1 {
             text-align: center;
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
         }
+
         .input-field {
             margin-bottom: 15px;
         }
+
         label {
             display: inline-block;
             width: 150px;
             font-weight: bold;
         }
-        input, select {
+
+        input,
+        select {
             padding: 5px;
             width: 200px;
         }
+
         .result {
             margin-top: 20px;
             font-weight: bold;
         }
+
         .button {
             background-color: #4CAF50;
             color: white;
@@ -42,873 +51,1510 @@
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Electroplating Cost Calculator</h1>
+    <div class="container">
+        <h1>Electroplating Cost Calculator</h1>
 
-    <div class="input-field">
-        <label for="material">Select Material:</label>
-        <select id="material">
-            <option value="brass" data-density="8.4" data-price="0.5" data-intensity="2" data-equivalent="1.204" data-yield="70" data-voltage="2">Brass</option>
-            <option value="bronze" data-density="8.9" data-price="0.6" data-intensity="2" data-equivalent="2.06" data-yield="100" data-voltage="2">Bronze</option>
-            <option value="glance_chromium" data-density="7.2" data-price="0.08" data-intensity="12" data-equivalent="0.032" data-yield="10" data-voltage="5">Glance Chromium</option>
-            <option value="hard_chromium" data-density="7.2" data-price="0.1" data-intensity="50" data-equivalent="0.064" data-yield="20" data-voltage="6">Hard Chromium</option>
-            <option value="copper_no_steel" data-density="8.96" data-price="0.7" data-intensity="3" data-equivalent="1.186" data-yield="100" data-voltage="3">Copper (non-steel substrates)</option>
-            <option value="copper_steel" data-density="8.96" data-price="0.7" data-intensity="3" data-equivalent="0.71" data-yield="60" data-voltage="3">Copper (on steel substrates)</option>
-            <option value="gold_decorative" data-density="19.3" data-price="100" data-intensity="0.25" data-equivalent="6.62" data-yield="90" data-voltage="1">Gold (decorative)</option>
-            <option value="gold_technical" data-density="19.3" data-price="100" data-intensity="2" data-equivalent="3.68" data-yield="50" data-voltage="3">Gold (technical)</option>
-            <option value="nickel" data-density="8.9" data-price="0.8" data-intensity="4" data-equivalent="1.04" data-yield="95" data-voltage="4">Nickel</option>
-            <option value="platinum" data-density="21.45" data-price="30" data-intensity="5" data-equivalent="0.182" data-yield="10" data-voltage="6">Platinum</option>
-            <option value="silver" data-density="10.5" data-price="1.4" data-intensity="1" data-equivalent="4.024" data-yield="100" data-voltage="1">Silver</option>
-            <option value="tin" data-density="7.3" data-price="0.5" data-intensity="1" data-equivalent="1.107" data-yield="100" data-voltage="2">Tin</option>
-            <option value="zinc_uniform" data-density="7.1" data-price="0.1" data-intensity="2" data-equivalent="1.04" data-yield="85" data-voltage="2">Zinc (uniform)</option>
-            <option value="zinc_fast" data-density="7.1" data-price="0.1" data-intensity="6" data-equivalent="1.22" data-yield="100" data-voltage="4">Zinc (fast)</option>
-        </select>
+        <div class="input-field">
+            <label for="material">Select Material:</label>
+            <select id="material">
+                <option value="brass" data-density="8.4" data-price="0.5" data-intensity="2" data-equivalent="1.204"
+                    data-yield="70" data-voltage="2">Brass</option>
+                <option value="bronze" data-density="8.9" data-price="0.6" data-intensity="2" data-equivalent="2.06"
+                    data-yield="100" data-voltage="2">Bronze</option>
+                <option value="glance_chromium" data-density="7.2" data-price="0.08" data-intensity="12"
+                    data-equivalent="0.032" data-yield="10" data-voltage="5">Glance Chromium</option>
+                <option value="hard_chromium" data-density="7.2" data-price="0.1" data-intensity="50"
+                    data-equivalent="0.064" data-yield="20" data-voltage="6">Hard Chromium</option>
+                <option value="copper_no_steel" data-density="8.96" data-price="0.7" data-intensity="3"
+                    data-equivalent="1.186" data-yield="100" data-voltage="3">Copper (non-steel substrates)</option>
+                <option value="copper_steel" data-density="8.96" data-price="0.7" data-intensity="3"
+                    data-equivalent="0.71" data-yield="60" data-voltage="3">Copper (on steel substrates)</option>
+                <option value="gold_decorative" data-density="19.3" data-price="100" data-intensity="0.25"
+                    data-equivalent="6.62" data-yield="90" data-voltage="1">Gold (decorative)</option>
+                <option value="gold_technical" data-density="19.3" data-price="100" data-intensity="2"
+                    data-equivalent="3.68" data-yield="50" data-voltage="3">Gold (technical)</option>
+                <option value="nickel" data-density="8.9" data-price="0.8" data-intensity="4" data-equivalent="1.04"
+                    data-yield="95" data-voltage="4">Nickel</option>
+                <option value="platinum" data-density="21.45" data-price="30" data-intensity="5" data-equivalent="0.182"
+                    data-yield="10" data-voltage="6">Platinum</option>
+                <option value="silver" data-density="10.5" data-price="1.4" data-intensity="1" data-equivalent="4.024"
+                    data-yield="100" data-voltage="1">Silver</option>
+                <option value="tin" data-density="7.3" data-price="0.5" data-intensity="1" data-equivalent="1.107"
+                    data-yield="100" data-voltage="2">Tin</option>
+                <option value="zinc_uniform" data-density="7.1" data-price="0.1" data-intensity="2"
+                    data-equivalent="1.04" data-yield="85" data-voltage="2">Zinc (uniform)</option>
+                <option value="zinc_fast" data-density="7.1" data-price="0.1" data-intensity="6" data-equivalent="1.22"
+                    data-yield="100" data-voltage="4">Zinc (fast)</option>
+            </select>
+        </div>
+
+
+
+        <div id="uploadSection">
+            <label for="stlFile">(not required) Upload .STL File:</label>
+            <input type="file" id="stlFile" accept=".stl" onchange="calculateSurfaceArea()">
+            <p id="areaResult"></p>
+        </div>
+
+        <div class="input-field">
+            <label for="surfaceArea">Surface Area (dm²):</label>
+            <input type="number" id="surfaceArea" placeholder="Enter surface area">
+        </div>
+
+        <div class="input-field">
+            <label for="thickness">Coating Thickness (µm):</label>
+            <input type="number" id="thickness" placeholder="Enter thickness in µm">
+        </div>
+
+        <div class="input-field">
+            <label for="hourlyWages">Hourly Wages ($/h):</label>
+            <input type="number" id="hourlyWages" value="0">
+        </div>
+
+        <div class="input-field">
+            <label for="laborTime">Labor Time (min/part):</label>
+            <input type="number" id="laborTime" placeholder="Enter labor time in minutes">
+        </div>
+
+        <div class="input-field">
+            <label for="bathSize">Bath Size (liters):</label>
+            <input type="number" id="bathSize" placeholder="Enter bath size in liters">
+        </div>
+
+        <button class="button" onclick="calculateCost()">Calculate Cost</button>
+
+        <div class="result" id="result"></div>
+
+
+        <button
+            onclick="document.getElementById('sectionID').style.display = document.getElementById('sectionID').style.display === 'none' ? 'block' : 'none';">View
+            Raw Data Document</button>
+
     </div>
 
-   
-    
-    <div id="uploadSection">
-        <label for="stlFile">(not required) Upload .STL File:</label>
-        <input type="file" id="stlFile" accept=".stl" onchange="calculateSurfaceArea()">
-        <p id="areaResult"></p>
-    </div>
+    <script>
+        function calculateSurfaceArea() {
+            const fileInput = document.getElementById('stlFile');
+            const file = fileInput.files[0];
 
-    <div class="input-field">
-        <label for="surfaceArea">Surface Area (dm²):</label>
-        <input type="number" id="surfaceArea" placeholder="Enter surface area">
-    </div>
+            if (file) {
+                // Implement your STL file parsing and surface area calculation logic here
+                // This is just a placeholder for demonstration purposes
+                const surfaceArea = Math.random() * 100; // Replace with actual calculation
 
-    <div class="input-field">
-        <label for="thickness">Coating Thickness (µm):</label>
-        <input type="number" id="thickness" placeholder="Enter thickness in µm">
-    </div>
+                // Display the result
+                document.getElementById('areaResult').innerText = `Estimated Surface Area: ${surfaceArea.toFixed(2)} dm²`;
+            } else {
+                document.getElementById('areaResult').innerText = 'Please upload a valid .STL file.';
+            }
+        }
 
-    <div class="input-field">
-        <label for="hourlyWages">Hourly Wages ($/h):</label>
-        <input type="number" id="hourlyWages" value="300">
-    </div>
+        function calculateCost() {
+            // Get user inputs
+            const materialDropdown = document.getElementById('material');
+            const selectedMaterial = materialDropdown.options[materialDropdown.selectedIndex];
+            const materialDensity = parseFloat(selectedMaterial.getAttribute('data-density'));
+            const materialPrice = parseFloat(selectedMaterial.getAttribute('data-price'));
+            const currentIntensity = parseFloat(selectedMaterial.getAttribute('data-intensity'));
+            const electrostaticEquivalent = parseFloat(selectedMaterial.getAttribute('data-equivalent'));
+            const currentYield = parseFloat(selectedMaterial.getAttribute('data-yield'));
+            const materialVoltage = parseFloat(selectedMaterial.getAttribute('data-voltage'));
 
-    <div class="input-field">
-        <label for="laborTime">Labor Time (min/part):</label>
-        <input type="number" id="laborTime" placeholder="Enter labor time in minutes">
-    </div>
+            const surfaceArea = parseFloat(document.getElementById('surfaceArea').value);
+            const coatingThickness = parseFloat(document.getElementById('thickness').value);
+            const hourlyWages = parseFloat(document.getElementById('hourlyWages').value);
+            const laborTime = parseFloat(document.getElementById('laborTime').value);
+            const bathSize = parseFloat(document.getElementById('bathSize').value);
 
-    <div class="input-field">
-        <label for="bathSize">Bath Size (liters):</label>
-        <input type="number" id="bathSize" placeholder="Enter bath size in liters">
-    </div>
+            if (isNaN(surfaceArea) || isNaN(coatingThickness) || isNaN(laborTime) || isNaN(bathSize)) {
+                document.getElementById('result').innerText = "Please fill in all required fields.";
+                return;
+            }
 
-    <button class="button" onclick="calculateCost()">Calculate Cost</button>
+            // 1. Material Cost Calculation
+            const qm = 0.01 * materialDensity;
+            const materialCost = materialPrice * qm * surfaceArea * coatingThickness;
 
-    <div class="result" id="result"></div>
+            // 2. Electroplating Time Calculation (based on Faraday's Law)
+            const bathTime = (coatingThickness * materialDensity * 60) / (currentIntensity * electrostaticEquivalent * currentYield);
+            const platingTimePerPart = (bathTime * surfaceArea) / (0.1 * bathSize);
+            const totalTime = platingTimePerPart + laborTime;
 
+            // 3. Labor Cost Calculation
+            const laborCost = hourlyWages * (totalTime / 60);
 
-<button onclick="document.getElementById('sectionID').style.display = document.getElementById('sectionID').style.display === 'none' ? 'block' : 'none';">View Raw Data Document</button>
+            // 4. Equipment Cost Calculation
+            const equipmentCostPerHour = 35; // Given as 35 $/h
+            const equipmentCost = equipmentCostPerHour * (totalTime / 60);
 
-</div>
+            // 5. Current and Voltage Calculation
+            const currentRequired = currentIntensity * surfaceArea;  // Current in Amperes
+            const voltageRequired = materialVoltage;  // Voltage depends on the material (approximation)
+
+            // 6. Total Cost Calculation
+            const totalCost = materialCost + laborCost + equipmentCost;
+
+            // Display results
+            displayFormulas(materialPrice, surfaceArea, coatingThickness, materialDensity, materialCost, currentIntensity, electrostaticEquivalent, currentYield, platingTimePerPart, hourlyWages, totalTime, laborCost, equipmentCost, currentRequired, materialVoltage, voltageRequired, totalCost) 
+            
+        }
+    </script>
+    <div class="formula" id="formulaDisplay"></div>
+
+    <div id="formulaDisplay" class="formula-container"></div>
+
+<style>
+    .formula-container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px auto;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+        font-family: Arial, sans-serif;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    h3 {
+        margin-top: 40px;
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+</style>
 
 <script>
-    function calculateSurfaceArea() {
-        const fileInput = document.getElementById('stlFile');
-        const file = fileInput.files[0];
+function displayFormulas(materialPrice, surfaceArea, coatingThickness, materialDensity, materialCost, currentIntensity, electrostaticEquivalent, currentYield, platingTimePerPart, hourlyWages, totalTime, laborCost, equipmentCost, currentRequired, materialVoltage, voltageRequired, totalCost) {
+    document.getElementById('formulaDisplay').innerHTML = `
+        <h3>Formula Explanations:</h3>
 
-        if (file) {
-            // Implement your STL file parsing and surface area calculation logic here
-            // This is just a placeholder for demonstration purposes
-            const surfaceArea = Math.random() * 100; // Replace with actual calculation
+        <table>
+            <tr>
+                <th>Formula</th>
+                <th>Explanation</th>
+                <th>Result</th>
+            </tr>
 
-            // Display the result
-            document.getElementById('areaResult').innerText = `Estimated Surface Area: ${surfaceArea.toFixed(2)} dm²`;
-        } else {
-            document.getElementById('areaResult').innerText = 'Please upload a valid .STL file.';
-        }
-    }
+            <tr>
+                <td><strong>1. Material Cost Calculation:</strong></td>
+                <td>Material Cost = Price * Surface Area * Coating Thickness * Density</td>
+                <td>Material Cost = ${materialPrice} $/kg * ${surfaceArea} dm² * ${coatingThickness} µm * ${materialDensity} kg/m²<br><strong>Result: ${materialCost.toFixed(2)} $</strong></td>
+            </tr>
 
-    function calculateCost() {
-        // Get user inputs
-        const materialDropdown = document.getElementById('material');
-        const selectedMaterial = materialDropdown.options[materialDropdown.selectedIndex];
-        const materialDensity = parseFloat(selectedMaterial.getAttribute('data-density'));
-        const materialPrice = parseFloat(selectedMaterial.getAttribute('data-price'));
-        const currentIntensity = parseFloat(selectedMaterial.getAttribute('data-intensity'));
-        const electrostaticEquivalent = parseFloat(selectedMaterial.getAttribute('data-equivalent'));
-        const currentYield = parseFloat(selectedMaterial.getAttribute('data-yield'));
-        const materialVoltage = parseFloat(selectedMaterial.getAttribute('data-voltage'));
+            <tr>
+                <td><strong>2. Electroplating Time Calculation (Faraday's Law):</strong></td>
+                <td>Plating Time per part = (Thickness * Density * 60) / (Current Intensity * Electrostatic Equivalent * Yield)</td>
+                <td>Plating Time = (${coatingThickness} µm * ${materialDensity} kg/m² * 60) / (${currentIntensity} A/dm² * ${electrostaticEquivalent} g/Ah * ${currentYield}%)<br><strong>Result: ${platingTimePerPart.toFixed(2)} minutes</strong></td>
+            </tr>
 
-        const surfaceArea = parseFloat(document.getElementById('surfaceArea').value);
-        const coatingThickness = parseFloat(document.getElementById('thickness').value);
-        const hourlyWages = parseFloat(document.getElementById('hourlyWages').value);
-        const laborTime = parseFloat(document.getElementById('laborTime').value);
-        const bathSize = parseFloat(document.getElementById('bathSize').value);
+            <tr>
+                <td><strong>3. Labor Cost Calculation:</strong></td>
+                <td>Labor Cost = Hourly Wage * (Total Time / 60)</td>
+                <td>Labor Cost = ${hourlyWages} $/h * (${totalTime.toFixed(2)} / 60)<br><strong>Result: ${laborCost.toFixed(2)} $</strong></td>
+            </tr>
 
-        if (isNaN(surfaceArea) || isNaN(coatingThickness) || isNaN(laborTime) || isNaN(bathSize)) {
-            document.getElementById('result').innerText = "Please fill in all required fields.";
-            return;
-        }
+            <tr>
+                <td><strong>4. Equipment Cost Calculation:</strong></td>
+                <td>Equipment Cost = Equipment Cost per Hour * (Total Time / 60)</td>
+                <td>Equipment Cost = 35 $/h * (${totalTime.toFixed(2)} minutes / 60)<br><strong>Result: ${equipmentCost.toFixed(2)} $</strong></td>
+            </tr>
 
-        // 1. Material Cost Calculation
-        const qm = 0.01 * materialDensity;
-        const materialCost = materialPrice * qm * surfaceArea * coatingThickness;
+            <tr>
+                <td><strong>5. Current and Voltage Calculation:</strong></td>
+                <td>Current Required = Current Intensity * Surface Area<br>Voltage Required = Based on Material</td>
+                <td>Current Required = ${currentIntensity} A/dm² * ${surfaceArea} dm²<br><strong>Result: ${currentRequired.toFixed(2)} Amps</strong><br>Voltage Required = ${materialVoltage} Volts<br><strong>Result: ${voltageRequired.toFixed(2)} Volts</strong></td>
+            </tr>
 
-        // 2. Electroplating Time Calculation (based on Faraday's Law)
-        const bathTime = (coatingThickness * materialDensity * 60) / (currentIntensity * electrostaticEquivalent * currentYield);
-        const platingTimePerPart = (bathTime * surfaceArea) / (0.1 * bathSize);
-        const totalTime = platingTimePerPart + laborTime;
-
-        // 3. Labor Cost Calculation
-        const laborCost = hourlyWages * (totalTime / 60);
-
-        // 4. Equipment Cost Calculation
-        const equipmentCostPerHour = 35; // Given as 35 $/h
-        const equipmentCost = equipmentCostPerHour * (totalTime / 60);
-
-        // 5. Current and Voltage Calculation
-        const currentRequired = currentIntensity * surfaceArea;  // Current in Amperes
-        const voltageRequired = materialVoltage;  // Voltage depends on the material (approximation)
-
-        // 6. Total Cost Calculation
-        const totalCost = materialCost + laborCost + equipmentCost;
-
-        // Display results
-        document.getElementById('result').innerHTML = `
-            <p>Material Cost: ${materialCost.toFixed(2)} $/part</p>
-            <p>Labor Cost: ${laborCost.toFixed(2)} $/part</p>
-            <p>Equipment Cost: ${equipmentCost.toFixed(2)} $/part</p>
-            <p>Current Required: ${currentRequired.toFixed(2)} Amps</p>
-            <p>Voltage Required: ${voltageRequired.toFixed(2)} Volts</p>
-            <p>Plating Time: ${totalTime.toFixed(2)} minutes</p>
-            <p><strong>Total Cost: ${totalCost.toFixed(2)} $/part</strong></p>
-        `;
-    }
+            <tr>
+                <td><strong>6. Total Cost Calculation:</strong></td>
+                <td>Total Cost = Material Cost + Labor Cost + Equipment Cost</td>
+                <td>Total Cost = ${materialCost.toFixed(2)} $ + ${laborCost.toFixed(2)} $ + ${equipmentCost.toFixed(2)} $<br><strong>Result: ${totalCost.toFixed(2)} $/part</strong></td>
+            </tr>
+        </table>
+    `;
+}
 </script>
 
-<div id="sectionID" style="display: none;">
-   
+    
+
+    <div id="sectionID" style="display: none;">
+
         <p align="center">&nbsp;</p>
-        <p align="left"><font size="4"><strong>ELECTROPLATING COSTS CALCULATION SOURCE: https://polynet.dk/ingpro/surface/elecomk.htm</strong></font><br>
-        <br>
-        Andrea Mazzilli, Manuf. Eng. &amp; Torben Lenau Ass. Prof. Ph.D.<br>
-        Department of Manufacturing Engineering<br>
-        DTU, Building 425<br>
-        DK-2800 Lyngby<br>
-        Tel. ++45 45254811<br>
-        Fax ++45 45254803<br>
-        E-mail: &lt;tl@ipt.dtu.dk&gt;<br>
+        <p align="left">
+            <font size="4"><strong>ELECTROPLATING COSTS CALCULATION SOURCE:
+                    https://polynet.dk/ingpro/surface/elecomk.htm</strong></font><br>
+            <br>
+            Andrea Mazzilli, Manuf. Eng. &amp; Torben Lenau Ass. Prof. Ph.D.<br>
+            Department of Manufacturing Engineering<br>
+            DTU, Building 425<br>
+            DK-2800 Lyngby<br>
+            Tel. ++45 45254811<br>
+            Fax ++45 45254803<br>
+            E-mail: &lt;tl@ipt.dtu.dk&gt;<br>
         </p>
         <p><br>
-        <strong>ABSTRACT<br>
-        </strong><br>
-        This paper aims to describe an approximated method for estimating the costs of electroplating processes, by trying to consider only the most important parameters involved, and simplify their choice. The 
-        goal is to set a simple but reliable method which can be used to get an overall idea of costs involved in these processes.</p>
+            <strong>ABSTRACT<br>
+            </strong><br>
+            This paper aims to describe an approximated method for estimating the costs of electroplating processes, by
+            trying to consider only the most important parameters involved, and simplify their choice. The
+            goal is to set a simple but reliable method which can be used to get an overall idea of costs involved in
+            these processes.
+        </p>
         <p><br>
-        Electroplating costs are based on 3 main factors: </p>
+            Electroplating costs are based on 3 main factors: </p>
         <blockquote>
-        <p>1. Material <br>
-        2. Labor<br>
-        3. Equipment </p>
+            <p>1. Material <br>
+                2. Labor<br>
+                3. Equipment </p>
         </blockquote>
-        <p>Labor definately is the most important factor, mostly for common metals plating, in which material's cost is not so high.<br>
-        Another very important parameter to be considered is the surface area of the object to be coated, because it has an influence on all the three factors mentioned. An empirical method to estimate surface 
-        areas is described in the paper "<a href="empirica.htm"><em>Empirical Calculation of the Surface Area of an Object</em></a> , Andrea Mazzilli &amp; Torben Lenau (1996)." <br>
-        <br>
-        <strong>1. MATERIAL COST</strong><br>
-        <br>
-        In order to calculate the material's cost related to plating of a part, one has to know the <u>amount of material</u> which is going to be deposited and the <u>price</u> of the coating material.<br>
-        <br>
-        <strong>· Amount of material </strong></p>
+        <p>Labor definately is the most important factor, mostly for common metals plating, in which material's cost is
+            not so high.<br>
+            Another very important parameter to be considered is the surface area of the object to be coated, because it
+            has an influence on all the three factors mentioned. An empirical method to estimate surface
+            areas is described in the paper "<a href="empirica.htm"><em>Empirical Calculation of the Surface Area of an
+                    Object</em></a> , Andrea Mazzilli &amp; Torben Lenau (1996)." <br>
+            <br>
+            <strong>1. MATERIAL COST</strong><br>
+            <br>
+            In order to calculate the material's cost related to plating of a part, one has to know the <u>amount of
+                material</u> which is going to be deposited and the <u>price</u> of the coating material.<br>
+            <br>
+            <strong>· Amount of material </strong>
+        </p>
         <blockquote>
-        <p>The amount of material (i.e. the mass) which is going to be deposited depends on three parameters:</p>
-        <blockquote>
-        <p>a) the surface area,<br>
-        b) the coating's thickness,<br>
-        c) the material's density</p>
-        </blockquote>
-        <p><em>a) Calculation of the part's surface area "S" [dm</em><sup><em>2</em></sup><em>/part]	</em></p>
-        <p>This sometimes is a very difficult task, because there are many complicated shapes. Therefore, this calculation usually is done by using specific tools (e.g computer aided tools) or by trying 
-        to approximate a complex geometry as a more common (and simple) one. This simple geometry can be a sphere, cone, cylinder or parallelepiped, depending on the part's shape. Full details 
-        of it are given in the previously mentioned article "<a href="empirica.htm"><em>Empirical Calculation of the Surface Area of an Object</em></a>, Andrea Mazzilli &amp; Torben Lenau (1996)".</p>
-        <p><em>b) Coating's thickness "t" [µm]</em></p>
-        <p>Coating's thickness is highly dependent on the material and the purpose of the coating. So, usually it is decided case by case. However, every electroplating process has its recommended 
-        range of values (see table 1).</p>
-        <p><em>c) Material's density "q</em><sub><em>m</em></sub><em>" [g/dm</em><sup><em>2</em></sup><em>· µm]</em></p>
-        </blockquote>
-        <blockquote>
-        <p>In order to simplify the calculation of the amount of material, the common values of the material's density, usually given in [g/cm<sup>3</sup>]	(see table 1), are transformed by the following formula in a 
-        more convenient unit.</p>
-        </blockquote>
-        <blockquote>
-        <blockquote>
-        <p>q<sub>m</sub>= 0.01·d<sub>m</sub>	</p>
-        <p>where: d<sub>m</sub>= material's density [g/cm<sup>3</sup>]	</p>
-        </blockquote>
-        </blockquote>
-        <blockquote>
-        <p>The following table shows the values of some important variables, useful for electroplating costs' calculation, for different coating materials.</p>
-        </blockquote>
-        <div align="center"><center>
-        <table border="1" width="50%">
-        <tbody><tr><td align="center" width="20%"><strong>Material</strong></td><td align="center" width="20%"><em>Density</em><sup><em>1</em></sup><em> [g/cm</em><sup><em>3</em></sup><em>]</em></td><td align="center" width="20%"><em>Thickness range</em><sup><em>2</em></sup><em> 
-        [µm]</em></td><td align="center" width="20%"><em>Typical</em><sup><em>3</em></sup><em> thickness 
-        [µm]</em></td><td align="center" width="20%"><em>Price</em><sup><em>4</em></sup><em> [DKK/Kg]</em></td></tr>
-        <tr><td align="center" width="20%">Brass</td><td align="center" width="20%">8.4</td><td align="center" width="20%">2-10</td><td align="center" width="20%">3</td><td align="center" width="20%">20</td></tr>
-        <tr><td align="center" width="20%">Bronze</td><td align="center" width="20%">8.7</td><td align="center" width="20%">10-20</td><td align="center" width="20%">15</td><td align="center" width="20%">30</td></tr>
-        <tr><td align="center" width="20%">Chromium</td><td align="center" width="20%">7.2</td><td align="center" width="25%">10-1000 (hard); 0.25-1 
-        (glance)</td><td align="center" width="20%">100/ 0.5</td><td align="center" width="20%">8</td></tr>
-        <tr><td align="center" width="20%">Copper</td><td align="center" width="20%">8.9</td><td align="center" width="20%">5-50</td><td align="center" width="20%">25</td><td align="center" width="20%">25</td></tr>
-        <tr><td align="center" width="20%">Gold</td><td align="center" width="20%">19.3</td><td align="center" width="20%">0.1-3</td><td align="center" width="20%">1.5</td><td align="center" width="20%">100000</td></tr>
-        <tr><td align="center" width="20%">Nickel</td><td align="center" width="20%">8.9</td><td align="center" width="20%">20-50</td><td align="center" width="20%">30</td><td align="center" width="20%">80</td></tr>
-        <tr><td align="center" width="20%">Platinum</td><td align="center" width="20%">21.5</td><td align="center" width="20%">-</td><td align="center" width="20%">-</td><td align="center" width="20%">103000</td></tr>
-        <tr><td align="center" width="20%">Palladium</td><td align="center" width="20%">11.9</td><td align="center" width="20%">-</td><td align="center" width="20%">-</td><td align="center" width="20%">30000</td></tr>
-        <tr><td align="center" width="20%">Silver</td><td align="center" width="20%">10.5</td><td align="center" width="20%">2.5-25</td><td align="center" width="20%">12.5</td><td align="center" width="20%">1400</td></tr>
-        <tr><td align="center" width="20%">Tin</td><td align="center" width="20%">7.3</td><td align="center" width="20%">1-13</td><td align="center" width="20%">7</td><td align="center" width="20%">65</td></tr>
-        <tr><td align="center" width="20%">Zinc</td><td align="center" width="20%">7.1</td><td align="center" width="20%">5-15</td><td align="center" width="20%">10</td><td align="center" width="20%">10</td></tr>
-        </tbody></table>
-        </center></div>
-        <p align="center"><strong>Tab 1.</strong> <em>Densities, typical deposition thickness and prices of some of the most important coating materials.</em></p>
-        <blockquote>
-        <p align="left"><sup><font size="1">1</font></sup><font size="2"> Values taken from "<em>Design inSite, </em>The designer's guide to manufacturing"<em> </em>&lt;http:www.ipt.dtu.dk/~tl/inspsite/htmsider/home.htm&gt;<em>.</em></font></p>
+            <p>The amount of material (i.e. the mass) which is going to be deposited depends on three parameters:</p>
+            <blockquote>
+                <p>a) the surface area,<br>
+                    b) the coating's thickness,<br>
+                    c) the material's density</p>
+            </blockquote>
+            <p><em>a) Calculation of the part's surface area "S" [dm</em><sup><em>2</em></sup><em>/part] </em></p>
+            <p>This sometimes is a very difficult task, because there are many complicated shapes. Therefore, this
+                calculation usually is done by using specific tools (e.g computer aided tools) or by trying
+                to approximate a complex geometry as a more common (and simple) one. This simple geometry can be a
+                sphere, cone, cylinder or parallelepiped, depending on the part's shape. Full details
+                of it are given in the previously mentioned article "<a href="empirica.htm"><em>Empirical Calculation of
+                        the Surface Area of an Object</em></a>, Andrea Mazzilli &amp; Torben Lenau (1996)".</p>
+            <p><em>b) Coating's thickness "t" [µm]</em></p>
+            <p>Coating's thickness is highly dependent on the material and the purpose of the coating. So, usually it is
+                decided case by case. However, every electroplating process has its recommended
+                range of values (see table 1).</p>
+            <p><em>c) Material's density "q</em><sub><em>m</em></sub><em>" [g/dm</em><sup><em>2</em></sup><em>· µm]</em>
+            </p>
         </blockquote>
         <blockquote>
-        <p align="left"><sup><font size="1">2 </font></sup><font size="2">Values taken from <em>"Tabellen und Betriebsdaten für die Galvanotechnik</em>, Eugen G. Leuze Verlag - Saulgau (Whrtt.)", and set by discussing with Peter Leisner.</font></p>
+            <p>In order to simplify the calculation of the amount of material, the common values of the material's
+                density, usually given in [g/cm<sup>3</sup>] (see table 1), are transformed by the following formula in
+                a
+                more convenient unit.</p>
         </blockquote>
         <blockquote>
-        <p align="left"><sup><font size="1">3</font></sup><font size="2"> Values set through the discussion with Peter Leisner.</font></p>
+            <blockquote>
+                <p>q<sub>m</sub>= 0.01·d<sub>m</sub> </p>
+                <p>where: d<sub>m</sub>= material's density [g/cm<sup>3</sup>] </p>
+            </blockquote>
         </blockquote>
         <blockquote>
-        <p><sup><font size="1">4</font></sup><font size="2"> Prices' values are calculated starting from their average quotations and then using a corrective multiplication coefficent, whose value is 1.7 for common metals and 1.4 for precious metals. For alloys, price is the 
-        weighted average of their components' price (e.g. brass, 70 % copper and 30 % zinc; bronze, 90 % copper and 10% tin). The average quotations are taken from different possible sources such as: "</font><a href="http://www.lme.co.uk/ARCHIVE/MPrices.htm"><font size="2">London Metal 
-        Exchange</font></a><font size="2">", "</font><a href="http://www.metals-finishing.com/prices/future.htm"><font size="2">Metals-Finishingl.Com, daily metal prices</font></a><font size="2">" or "</font><a href="http://www.trellgroup.se/trellgroup/METMAR.html"><font size="2">Trelleborg AB, The Metal Market</font></a><font size="2">". The corrective coefficent takes into consideration the difference between the quotation's value and the real price of 
-        the metal on the market, and is set through the empirical observation of the existing differences for some materials. Naturally the prices found are just indicative, and one could find slightly different values from 
-        different sources.</font></p>
+            <p>The following table shows the values of some important variables, useful for electroplating costs'
+                calculation, for different coating materials.</p>
         </blockquote>
-        <p><strong>· Material price "p"· [DKK/g]</strong></p>
+        <div align="center">
+            <center>
+                <table border="1" width="50%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="20%"><strong>Material</strong></td>
+                            <td align="center" width="20%"><em>Density</em><sup><em>1</em></sup><em>
+                                    [g/cm</em><sup><em>3</em></sup><em>]</em></td>
+                            <td align="center" width="20%"><em>Thickness range</em><sup><em>2</em></sup><em>
+                                    [µm]</em></td>
+                            <td align="center" width="20%"><em>Typical</em><sup><em>3</em></sup><em> thickness
+                                    [µm]</em></td>
+                            <td align="center" width="20%"><em>Price</em><sup><em>4</em></sup><em> [$/Kg]</em></td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Brass</td>
+                            <td align="center" width="20%">8.4</td>
+                            <td align="center" width="20%">2-10</td>
+                            <td align="center" width="20%">3</td>
+                            <td align="center" width="20%">20</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Bronze</td>
+                            <td align="center" width="20%">8.7</td>
+                            <td align="center" width="20%">10-20</td>
+                            <td align="center" width="20%">15</td>
+                            <td align="center" width="20%">30</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Chromium</td>
+                            <td align="center" width="20%">7.2</td>
+                            <td align="center" width="25%">10-1000 (hard); 0.25-1
+                                (glance)</td>
+                            <td align="center" width="20%">100/ 0.5</td>
+                            <td align="center" width="20%">8</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Copper</td>
+                            <td align="center" width="20%">8.9</td>
+                            <td align="center" width="20%">5-50</td>
+                            <td align="center" width="20%">25</td>
+                            <td align="center" width="20%">25</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Gold</td>
+                            <td align="center" width="20%">19.3</td>
+                            <td align="center" width="20%">0.1-3</td>
+                            <td align="center" width="20%">1.5</td>
+                            <td align="center" width="20%">100000</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Nickel</td>
+                            <td align="center" width="20%">8.9</td>
+                            <td align="center" width="20%">20-50</td>
+                            <td align="center" width="20%">30</td>
+                            <td align="center" width="20%">80</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Platinum</td>
+                            <td align="center" width="20%">21.5</td>
+                            <td align="center" width="20%">-</td>
+                            <td align="center" width="20%">-</td>
+                            <td align="center" width="20%">103000</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Palladium</td>
+                            <td align="center" width="20%">11.9</td>
+                            <td align="center" width="20%">-</td>
+                            <td align="center" width="20%">-</td>
+                            <td align="center" width="20%">30000</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Silver</td>
+                            <td align="center" width="20%">10.5</td>
+                            <td align="center" width="20%">2.5-25</td>
+                            <td align="center" width="20%">12.5</td>
+                            <td align="center" width="20%">1400</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Tin</td>
+                            <td align="center" width="20%">7.3</td>
+                            <td align="center" width="20%">1-13</td>
+                            <td align="center" width="20%">7</td>
+                            <td align="center" width="20%">65</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="20%">Zinc</td>
+                            <td align="center" width="20%">7.1</td>
+                            <td align="center" width="20%">5-15</td>
+                            <td align="center" width="20%">10</td>
+                            <td align="center" width="20%">10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
+        </div>
+        <p align="center"><strong>Tab 1.</strong> <em>Densities, typical deposition thickness and prices of some of the
+                most important coating materials.</em></p>
         <blockquote>
-        <p>The price of the materials (metals) is quoted every day, according to the market's demand and supply. Since, in most cases, material's cost is just a little part of the total cost of the process, 
-        rough values can be admitted, and therefore one can take the quotations' average values of some recent periods (see table 1).	</p>
+            <p align="left"><sup>
+                    <font size="1">1</font>
+                </sup>
+                <font size="2"> Values taken from "<em>Design inSite, </em>The designer's guide to manufacturing"<em>
+                    </em>&lt;http:www.ipt.dtu.dk/~tl/inspsite/htmsider/home.htm&gt;<em>.</em></font>
+            </p>
+        </blockquote>
+        <blockquote>
+            <p align="left"><sup>
+                    <font size="1">2 </font>
+                </sup>
+                <font size="2">Values taken from <em>"Tabellen und Betriebsdaten für die Galvanotechnik</em>, Eugen G.
+                    Leuze Verlag - Saulgau (Whrtt.)", and set by discussing with Peter Leisner.</font>
+            </p>
+        </blockquote>
+        <blockquote>
+            <p align="left"><sup>
+                    <font size="1">3</font>
+                </sup>
+                <font size="2"> Values set through the discussion with Peter Leisner.</font>
+            </p>
+        </blockquote>
+        <blockquote>
+            <p><sup>
+                    <font size="1">4</font>
+                </sup>
+                <font size="2"> Prices' values are calculated starting from their average quotations and then using a
+                    corrective multiplication coefficent, whose value is 1.7 for common metals and 1.4 for precious
+                    metals. For alloys, price is the
+                    weighted average of their components' price (e.g. brass, 70 % copper and 30 % zinc; bronze, 90 %
+                    copper and 10% tin). The average quotations are taken from different possible sources such as: "
+                </font><a href="http://www.lme.co.uk/ARCHIVE/MPrices.htm">
+                    <font size="2">London Metal
+                        Exchange</font>
+                </a>
+                <font size="2">", "</font><a href="http://www.metals-finishing.com/prices/future.htm">
+                    <font size="2">Metals-Finishingl.Com, daily metal prices</font>
+                </a>
+                <font size="2">" or "</font><a href="http://www.trellgroup.se/trellgroup/METMAR.html">
+                    <font size="2">Trelleborg AB, The Metal Market</font>
+                </a>
+                <font size="2">". The corrective coefficent takes into consideration the difference between the
+                    quotation's value and the real price of
+                    the metal on the market, and is set through the empirical observation of the existing differences
+                    for some materials. Naturally the prices found are just indicative, and one could find slightly
+                    different values from
+                    different sources.</font>
+            </p>
+        </blockquote>
+        <p><strong>· Material price "p"· [$/g]</strong></p>
+        <blockquote>
+            <p>The price of the materials (metals) is quoted every day, according to the market's demand and supply.
+                Since, in most cases, material's cost is just a little part of the total cost of the process,
+                rough values can be admitted, and therefore one can take the quotations' average values of some recent
+                periods (see table 1). </p>
         </blockquote>
         <p>Based on the parameters described above the material's cost of any electroplated component is:</p>
         <blockquote>
-        <blockquote>
-        <table border="1" cellpadding="0" cellspacing="0" width="25%">
-        <tbody><tr><td align="center" width="100%">C<sub>m</sub>= p ·q<sub>m</sub> ·S ·t	[DKK/part]</td></tr>
-        </tbody></table>
+            <blockquote>
+                <table border="1" cellpadding="0" cellspacing="0" width="25%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>m</sub>= p ·q<sub>m</sub> ·S ·t [$/part]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
-        </blockquote>
-        <p>Material's cost has a large influence on the total process' cost only for gold-plating or other technical precious metals (not very common applications). Even if silver is a quite expensive material, for small 
-        and medium parts material cost doesn't have any large influences on the global cost of the plating process, because labor is much more costly.</p>
+        <p>Material's cost has a large influence on the total process' cost only for gold-plating or other technical
+            precious metals (not very common applications). Even if silver is a quite expensive material, for small
+            and medium parts material cost doesn't have any large influences on the global cost of the plating process,
+            because labor is much more costly.</p>
         <p><strong>2. LABOR COST</strong></p>
-        <p>The two most important factors for calculating the labor cost are <u>hourly wages</u> and <u>time employed</u>.</p>
-        <p><strong>· Hourly wages "w</strong><sub><strong>l</strong></sub><strong>" [DKK/h]</strong></p>
+        <p>The two most important factors for calculating the labor cost are <u>hourly wages</u> and <u>time
+                employed</u>.</p>
+        <p><strong>· Hourly wages "w</strong><sub><strong>l</strong></sub><strong>" [$/h]</strong></p>
         <blockquote>
-        <p>Based on empirical estimates<sup>1</sup>, the hourly wages for electroplating are set to about 300 DKK/h. For time intensive processes, such as hard-chromium plating, the hourly cost of the process 
-        decreases to about 150 DKK/h, since the bath doesn't have to be checked continuously.</p>
+            <p>Based on empirical estimates<sup>1</sup>, the hourly wages for electroplating are set to about 300 $/h.
+                For time intensive processes, such as hard-chromium plating, the hourly cost of the process
+                decreases to about 150 $/h, since the bath doesn't have to be checked continuously.</p>
         </blockquote>
         <blockquote>
-        <p><sup><font size="1">1</font></sup><font size="2"> From the discussion with surface treatments companies and Peter Leisner.</font></p>
+            <p><sup>
+                    <font size="1">1</font>
+                </sup>
+                <font size="2"> From the discussion with surface treatments companies and Peter Leisner.</font>
+            </p>
         </blockquote>
         <p><strong>· Estimate of the time employed [min/part]</strong></p>
         <blockquote>
-        <p>The time employed for plating a component is composed by two different kind of times:</p>
-        <blockquote>
-        <p>a) electroplating time,<br>
-        b) labor time, that is related to the preparation of the component and post-operations (drying, packing, etc.).</p>
-        </blockquote>
-        </blockquote>
-        <blockquote>
-        <p><em>a) Specific electroplating time "t</em><sub><em>b</em></sub><em>" [min/part]<br>
-        </em><br>
-        Once the bath's composition is defined, the total plating time for the bath's content (bath's time or immersion time) is fixed. In fact, every bath has its parameters, which give a certain 
-        deposition rate. <br>
-        If the bath's size changes, the <em>current intensity</em> is also increased in order to maintain the same <em>current density</em>, and consequently the same deposition time.<br>
-        On the contrary, since electrolytic baths always are filled up to the top of their capacity, specific times (plating times of a single part) are substantially decreased by using big baths. <br>
-        <br>
-        Thus, plating time is given by the formula<sup>1</sup>:</p>
+            <p>The time employed for plating a component is composed by two different kind of times:</p>
+            <blockquote>
+                <p>a) electroplating time,<br>
+                    b) labor time, that is related to the preparation of the component and post-operations (drying,
+                    packing, etc.).</p>
+            </blockquote>
         </blockquote>
         <blockquote>
-        <blockquote>
-        <p>T<sub>b</sub>= (t·d<sub>m</sub>·60)/(I·E·Y) [min]</p>
-        <blockquote>
-        <p>t = coating's thickness [µm]<br>
-        d<sub>m</sub>= material's density [g/cm<sup>3</sup>]<br>
-        I = current intensity [Amp/dm<sup>2</sup>]<br>
-        E = electrostatic equivalent [g/Amp·h]<br>
-        Y = current yield %</p>
+            <p><em>a) Specific electroplating time "t</em><sub><em>b</em></sub><em>" [min/part]<br>
+                </em><br>
+                Once the bath's composition is defined, the total plating time for the bath's content (bath's time or
+                immersion time) is fixed. In fact, every bath has its parameters, which give a certain
+                deposition rate. <br>
+                If the bath's size changes, the <em>current intensity</em> is also increased in order to maintain the
+                same <em>current density</em>, and consequently the same deposition time.<br>
+                On the contrary, since electrolytic baths always are filled up to the top of their capacity, specific
+                times (plating times of a single part) are substantially decreased by using big baths. <br>
+                <br>
+                Thus, plating time is given by the formula<sup>1</sup>:
+            </p>
         </blockquote>
-        </blockquote>
+        <blockquote>
+            <blockquote>
+                <p>T<sub>b</sub>= (t·d<sub>m</sub>·60)/(I·E·Y) [min]</p>
+                <blockquote>
+                    <p>t = coating's thickness [µm]<br>
+                        d<sub>m</sub>= material's density [g/cm<sup>3</sup>]<br>
+                        I = current intensity [Amp/dm<sup>2</sup>]<br>
+                        E = electrostatic equivalent [g/Amp·h]<br>
+                        Y = current yield %</p>
+                </blockquote>
+            </blockquote>
         </blockquote>
         <blockquote>
-        <p><sup><font size="1">1</font></sup><font size="2"> Formula taken from the book: <em>"Tabellen und Betriebsdaten für die Galvanotechnik</em>, Eugen G. Leuze Verlag - Saulgau (Whrtt.)".</font></p>
+            <p><sup>
+                    <font size="1">1</font>
+                </sup>
+                <font size="2"> Formula taken from the book: <em>"Tabellen und Betriebsdaten für die
+                        Galvanotechnik</em>, Eugen G. Leuze Verlag - Saulgau (Whrtt.)".</font>
+            </p>
         </blockquote>
         <blockquote>
-        <p><br>
-        The values of these parameters vary for each process within standard ranges. The following table<sup>1</sup> aims to help find common values for these parameters. Values are indicative and can vary 
-        significantly for special applications and situations.</p>
+            <p><br>
+                The values of these parameters vary for each process within standard ranges. The following
+                table<sup>1</sup> aims to help find common values for these parameters. Values are indicative and can
+                vary
+                significantly for special applications and situations.</p>
         </blockquote>
         <p>&nbsp;</p>
-        <div align="center"><center>
-        <table border="1" width="50%">
-        <tbody><tr><td align="center" width="25%"><strong>Material</strong></td><td align="center" width="25%"><em>I [Amp/dm</em><sup><em>2</em></sup><em>]</em></td><td align="center" width="25%"><em>E [g/Amp·h]</em></td><td align="center" width="25%">Y [%]</td></tr>
-        <tr><td align="center" width="25%">Brass</td><td align="center" width="25%">2</td><td align="center" width="25%">1.204</td><td align="center" width="25%">70</td></tr>
-        <tr><td align="center" width="25%">Bronze</td><td align="center" width="25%">2</td><td align="center" width="25%">2.06</td><td align="center" width="25%">100</td></tr>
-        <tr><td align="center" width="25%">Glance chromium</td><td align="center" width="25%">12</td><td align="center" width="25%">0.032</td><td align="center" width="25%">10</td></tr>
-        <tr><td align="center" width="25%">Hard chromium</td><td align="center" width="25%">50</td><td align="center" width="25%">0.064</td><td align="center" width="25%">20</td></tr>
-        <tr><td align="center" width="25%">Copper (tech. &amp; decor.; 
-        no steel substrates)</td><td align="center" width="25%">3</td><td align="center" width="25%">1.186</td><td align="center" width="25%">100</td></tr>
-        <tr><td align="center" width="25%">Copper (technical on 
-        steel substrates)</td><td align="center" width="25%">3</td><td align="center" width="25%">0.71</td><td align="center" width="25%">60</td></tr>
-        <tr><td align="center" width="25%">Gold (decorative)</td><td align="center" width="25%">0.25</td><td align="center" width="25%">6.62</td><td align="center" width="25%">90</td></tr>
-        <tr><td align="center" width="25%">Gold (technical)</td><td align="center" width="25%">2</td><td align="center" width="25%">3.68</td><td align="center" width="25%">50</td></tr>
-        <tr><td align="center" width="25%">Nickel</td><td align="center" width="25%">4</td><td align="center" width="25%">1.04</td><td align="center" width="25%">95</td></tr>
-        <tr><td align="center" width="25%">Platinum</td><td align="center" width="25%">5</td><td align="center" width="25%">0.182</td><td align="center" width="25%">10</td></tr>
-        <tr><td align="center" width="25%">Silver</td><td align="center" width="25%">1</td><td align="center" width="25%">4.024</td><td align="center" width="25%">100</td></tr>
-        <tr><td align="center" width="25%">Tin</td><td align="center" width="25%">1</td><td align="center" width="25%">1.107</td><td align="center" width="25%">100</td></tr>
-        <tr><td align="center" width="25%">Zinc<sup>2</sup>: uniform material 
-        distribution</td><td align="center" width="25%">2</td><td align="center" width="25%">1.04</td><td align="center" width="25%">85</td></tr>
-        <tr><td align="center" width="25%">Zinc<sup>2</sup> (fast; no hydrogen 
-        embrittlement)</td><td align="center" width="25%">6</td><td align="center" width="25%">1.22</td><td align="center" width="25%">100</td></tr>
-        </tbody></table>
-        </center></div>
-        <p align="center"><strong>Tab 2. </strong><em>Common values of current intensity "I", electrostatic equivalent "E" and current yeld "Y" for different coating materials and situations. </em></p>
+        <div align="center">
+            <center>
+                <table border="1" width="50%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="25%"><strong>Material</strong></td>
+                            <td align="center" width="25%"><em>I [Amp/dm</em><sup><em>2</em></sup><em>]</em></td>
+                            <td align="center" width="25%"><em>E [g/Amp·h]</em></td>
+                            <td align="center" width="25%">Y [%]</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Brass</td>
+                            <td align="center" width="25%">2</td>
+                            <td align="center" width="25%">1.204</td>
+                            <td align="center" width="25%">70</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Bronze</td>
+                            <td align="center" width="25%">2</td>
+                            <td align="center" width="25%">2.06</td>
+                            <td align="center" width="25%">100</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Glance chromium</td>
+                            <td align="center" width="25%">12</td>
+                            <td align="center" width="25%">0.032</td>
+                            <td align="center" width="25%">10</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Hard chromium</td>
+                            <td align="center" width="25%">50</td>
+                            <td align="center" width="25%">0.064</td>
+                            <td align="center" width="25%">20</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Copper (tech. &amp; decor.;
+                                no steel substrates)</td>
+                            <td align="center" width="25%">3</td>
+                            <td align="center" width="25%">1.186</td>
+                            <td align="center" width="25%">100</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Copper (technical on
+                                steel substrates)</td>
+                            <td align="center" width="25%">3</td>
+                            <td align="center" width="25%">0.71</td>
+                            <td align="center" width="25%">60</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Gold (decorative)</td>
+                            <td align="center" width="25%">0.25</td>
+                            <td align="center" width="25%">6.62</td>
+                            <td align="center" width="25%">90</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Gold (technical)</td>
+                            <td align="center" width="25%">2</td>
+                            <td align="center" width="25%">3.68</td>
+                            <td align="center" width="25%">50</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Nickel</td>
+                            <td align="center" width="25%">4</td>
+                            <td align="center" width="25%">1.04</td>
+                            <td align="center" width="25%">95</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Platinum</td>
+                            <td align="center" width="25%">5</td>
+                            <td align="center" width="25%">0.182</td>
+                            <td align="center" width="25%">10</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Silver</td>
+                            <td align="center" width="25%">1</td>
+                            <td align="center" width="25%">4.024</td>
+                            <td align="center" width="25%">100</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Tin</td>
+                            <td align="center" width="25%">1</td>
+                            <td align="center" width="25%">1.107</td>
+                            <td align="center" width="25%">100</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Zinc<sup>2</sup>: uniform material
+                                distribution</td>
+                            <td align="center" width="25%">2</td>
+                            <td align="center" width="25%">1.04</td>
+                            <td align="center" width="25%">85</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%">Zinc<sup>2</sup> (fast; no hydrogen
+                                embrittlement)</td>
+                            <td align="center" width="25%">6</td>
+                            <td align="center" width="25%">1.22</td>
+                            <td align="center" width="25%">100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
+        </div>
+        <p align="center"><strong>Tab 2. </strong><em>Common values of current intensity "I", electrostatic equivalent
+                "E" and current yeld "Y" for different coating materials and situations. </em></p>
         <blockquote>
-        <p align="left"><sup><font size="1">1</font></sup><font size="2"> Indications for the values in the table have been taken from the book: <em>"Tabellen und Betriebsdaten für die Galvanotechnik</em>, Eugen G. Leuze Verlag - Saulgau (Whrtt.)", and values have been set following a 
-        discussion with Peter Leisner.</font></p>
+            <p align="left"><sup>
+                    <font size="1">1</font>
+                </sup>
+                <font size="2"> Indications for the values in the table have been taken from the book: <em>"Tabellen und
+                        Betriebsdaten für die Galvanotechnik</em>, Eugen G. Leuze Verlag - Saulgau (Whrtt.)", and values
+                    have been set following a
+                    discussion with Peter Leisner.</font>
+            </p>
         </blockquote>
         <blockquote>
-        <p align="left"><sup><font size="1">2</font></sup><font size="2"> Classification and values for zinc-plating have been taken from "<em>Kompendium over lektionerne i kursus 8007 Avanceret Overfladeteknologi efterårsemester 1993, </em>Procesteknisk Institut, Denmarks Tekniske 
-        Universitet (DTU)".</font></p>
+            <p align="left"><sup>
+                    <font size="1">2</font>
+                </sup>
+                <font size="2"> Classification and values for zinc-plating have been taken from "<em>Kompendium over
+                        lektionerne i kursus 8007 Avanceret Overfladeteknologi efterårsemester 1993, </em>Procesteknisk
+                    Institut, Denmarks Tekniske
+                    Universitet (DTU)".</font>
+            </p>
         </blockquote>
         <blockquote>
-        <p>At this point, in order to get the plating time per part, one must divide the total plating time by the bath's content capacity "b" [dm<sup>2</sup>], and then multiply by the component’s surface. Usually, 
-        baths' sizes vary from 200 l (small local industries) up to 4000 l (large industrial plants).The bath's content capacity in [dm<sup>2</sup>] can be estimated as 1/10 of the bath's capacity in liters<sup>1</sup>. </p>
-        <blockquote>
-        <blockquote>
-        <p>b = 0.1 · bath's size</p>
-        </blockquote>
-        </blockquote>
-        <blockquote>
-        <blockquote>
-        <p align="left">t<sub>b</sub> = T<sub>b</sub>· S / b [min/part]</p>
-        </blockquote>
-        </blockquote>
-        </blockquote>
-        <blockquote>
-        <p>The following table<sup>2</sup> gives reasonable values for minimum and maximum bath's sizes (liter) according to different production situations (number of parts and parts' size).</p>
-        </blockquote>
-        <div align="center"><center>
-        <table border="1" width="50%">
-        <tbody><tr><td></td><td>Small <strong>local </strong>production</td><td>Medium <strong>local 
-        </strong>production</td><td>Medium <strong>industrial</strong> 
-        production</td></tr>
-        <tr><td align="center" width="25%"><strong>Min/max bath's size 
-        [l]</strong></td><td align="center" width="25%"><em>5 parts</em></td><td align="center" width="25%"><em>100 parts</em></td><td align="center" width="25%"><em>5000 parts</em></td></tr>
-        <tr><td align="center" width="25%"><em>Small (1cm</em><sup><em>2</em></sup><em>)</em></td><td align="center" width="25%">200/4000</td><td align="center" width="25%">200/4000</td><td align="center" width="25%">200/4000</td></tr>
-        <tr><td align="center" width="25%"><em>Medium (1dm</em><sup><em>2</em></sup><em>)</em></td><td align="center" width="25%">200/4000</td><td align="center" width="25%">200/4000</td><td align="center" width="25%">4000/4000<sup>(3)</sup></td></tr>
-        <tr><td align="center" width="25%"><em>Large (100 dm</em><sup><em>2</em></sup><em>)</em></td><td align="center" width="25%">1000/4000<sup>(4)</sup></td><td align="center" width="25%">1000/4000</td><td align="center" width="25%">4000/4000</td></tr>
-        </tbody></table>
-        </center></div>
-        <blockquote>
-        <blockquote>
-        <p align="center"><font color="#000000"><strong>Tab 3.</strong><em> Reasonable maximum and minimum bath's sizes for different productions contexts (surface areas of the part, production volume).</em></font></p>
-        </blockquote>
+            <p>At this point, in order to get the plating time per part, one must divide the total plating time by the
+                bath's content capacity "b" [dm<sup>2</sup>], and then multiply by the component’s surface. Usually,
+                baths' sizes vary from 200 l (small local industries) up to 4000 l (large industrial plants).The bath's
+                content capacity in [dm<sup>2</sup>] can be estimated as 1/10 of the bath's capacity in
+                liters<sup>1</sup>. </p>
+            <blockquote>
+                <blockquote>
+                    <p>b = 0.1 · bath's size</p>
+                </blockquote>
+            </blockquote>
+            <blockquote>
+                <blockquote>
+                    <p align="left">t<sub>b</sub> = T<sub>b</sub>· S / b [min/part]</p>
+                </blockquote>
+            </blockquote>
         </blockquote>
         <blockquote>
-        <p align="left"><sup><font size="1">1</font></sup><font size="2"> Ideas on bath's size and content capacity have been provided by discussion with surface treatment companies.</font></p>
+            <p>The following table<sup>2</sup> gives reasonable values for minimum and maximum bath's sizes (liter)
+                according to different production situations (number of parts and parts' size).</p>
+        </blockquote>
+        <div align="center">
+            <center>
+                <table border="1" width="50%">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>Small <strong>local </strong>production</td>
+                            <td>Medium <strong>local
+                                </strong>production</td>
+                            <td>Medium <strong>industrial</strong>
+                                production</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%"><strong>Min/max bath's size
+                                    [l]</strong></td>
+                            <td align="center" width="25%"><em>5 parts</em></td>
+                            <td align="center" width="25%"><em>100 parts</em></td>
+                            <td align="center" width="25%"><em>5000 parts</em></td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%"><em>Small (1cm</em><sup><em>2</em></sup><em>)</em></td>
+                            <td align="center" width="25%">200/4000</td>
+                            <td align="center" width="25%">200/4000</td>
+                            <td align="center" width="25%">200/4000</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%"><em>Medium (1dm</em><sup><em>2</em></sup><em>)</em></td>
+                            <td align="center" width="25%">200/4000</td>
+                            <td align="center" width="25%">200/4000</td>
+                            <td align="center" width="25%">4000/4000<sup>(3)</sup></td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="25%"><em>Large (100 dm</em><sup><em>2</em></sup><em>)</em></td>
+                            <td align="center" width="25%">1000/4000<sup>(4)</sup></td>
+                            <td align="center" width="25%">1000/4000</td>
+                            <td align="center" width="25%">4000/4000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
+        </div>
+        <blockquote>
+            <blockquote>
+                <p align="center">
+                    <font color="#000000"><strong>Tab 3.</strong><em> Reasonable maximum and minimum bath's sizes for
+                            different productions contexts (surface areas of the part, production volume).</em></font>
+                </p>
+            </blockquote>
         </blockquote>
         <blockquote>
-        <p align="left"><sup><font size="1">2</font></sup><font size="2"> Values set according to the author's considerations.</font></p>
+            <p align="left"><sup>
+                    <font size="1">1</font>
+                </sup>
+                <font size="2"> Ideas on bath's size and content capacity have been provided by discussion with surface
+                    treatment companies.</font>
+            </p>
         </blockquote>
         <blockquote>
-        <p align="left"><sup><font size="1">3</font></sup><font size="2"> Min and max bath's size are the same because such productions are usually realized only by large industrial plants.</font></p>
+            <p align="left"><sup>
+                    <font size="1">2</font>
+                </sup>
+                <font size="2"> Values set according to the author's considerations.</font>
+            </p>
         </blockquote>
         <blockquote>
-        <p align="left"><sup><font size="1">4</font></sup><font size="2"> Min bath's size is 1000 liter instead of 200, because it's the minimum bath's size which can phisically contain a part of 100 dm</font><sup><font size="1">2</font></sup><font size="2">.</font></p>
+            <p align="left"><sup>
+                    <font size="1">3</font>
+                </sup>
+                <font size="2"> Min and max bath's size are the same because such productions are usually realized only
+                    by large industrial plants.</font>
+            </p>
         </blockquote>
         <blockquote>
-        <p align="left"><br>
-        <em>b) Labor time "t</em><sub><em>a</em></sub><em>" [min/part]</em><br>
-        <br>
-        The time related to labor (pre- and post-treatments) is very dependent on the production's type.<br>
-        For small industries (small production volumes), it depends very much on the component's state. If the component is an old object which requires a long preparation, this time increases very 
-        much. Therefore, depending on the component's state, size and complexity, the time can vary from five minutes up to several hours.<br>
-        For high production volumes (big baths), components usually are new and don't require long pre-treatments prior to electroplating. Therefore, this time mostly depends on the production 
-        volume .<br>
-        For high run volumes of worn surfaces, which must be repaired, however, pre-treatments' time is very important.<br>
-        <br>
-        The following table<sup>1</sup> shows reasonable average standard labor times for electroplating, according to different production volumes and parts sizes.</p>
-        </blockquote>
-        <div align="center"><center>
-        <table border="1" width="80%">
-        <tbody><tr><td align="center">Type of production</td><td align="center" colspan="3"><strong>Local</strong> production</td><td align="center" colspan="3"><strong>Industrial</strong> production</td></tr>
-        <tr><td align="center" width="14%"><strong>Time [min/part]</strong></td><td align="center" width="14%"><em>5 parts</em></td><td align="center" width="14%"><em>100 parts</em></td><td align="center" width="14%"><em>500 parts</em></td><td align="center" width="14%"><em>1000 parts</em></td><td align="center" width="15%"><em>5000 parts</em></td><td align="center" width="15%"><em>10000 parts</em></td></tr>
-        <tr><td align="center" width="14%"><em>Small (1cm2)</em></td><td align="center" width="14%">15</td><td align="center" width="14%">2</td><td align="center" width="14%">0.4</td><td align="center" width="14%">0..25</td><td align="center" width="15%">0.005</td><td align="center" width="15%">0.005</td></tr>
-        <tr><td align="center" width="14%"><em>Medium (1dm2)</em></td><td align="center" width="14%">20</td><td align="center" width="14%">3</td><td align="center" width="14%">0.6</td><td align="center" width="14%">0.12</td><td align="center" width="15%">0.024</td><td align="center" width="15%">0.024</td></tr>
-        <tr><td align="center" width="14%"><em>Large (100dm2)</em></td><td align="center" width="14%">25</td><td align="center" width="14%">4</td><td align="center" width="14%">0.8</td><td align="center" width="14%">0.12</td><td align="center" width="15%">0.024</td><td align="center" width="15%">0.024</td></tr>
-        </tbody></table>
-        </center></div>
-        <p align="center"><strong>Tab. 4</strong> <em>Reasonable average labor times of electroplating processes </em><font color="#000000"><em>or different productions contexts (surface areas of the part, production volume)</em></font><em>.</em></p>
-        <blockquote>
-        <p align="left"><sup><font size="1">1</font></sup><font size="2"> Values set according to a discussion with Peter Leisner.</font></p>
+            <p align="left"><sup>
+                    <font size="1">4</font>
+                </sup>
+                <font size="2"> Min bath's size is 1000 liter instead of 200, because it's the minimum bath's size which
+                    can phisically contain a part of 100 dm</font><sup>
+                    <font size="1">2</font>
+                </sup>
+                <font size="2">.</font>
+            </p>
         </blockquote>
         <blockquote>
-        <p align="left">Therefore, the total time employed is the sum of t<sub>a</sub> and t<sub>b</sub>: </p>
+            <p align="left"><br>
+                <em>b) Labor time "t</em><sub><em>a</em></sub><em>" [min/part]</em><br>
+                <br>
+                The time related to labor (pre- and post-treatments) is very dependent on the production's type.<br>
+                For small industries (small production volumes), it depends very much on the component's state. If the
+                component is an old object which requires a long preparation, this time increases very
+                much. Therefore, depending on the component's state, size and complexity, the time can vary from five
+                minutes up to several hours.<br>
+                For high production volumes (big baths), components usually are new and don't require long
+                pre-treatments prior to electroplating. Therefore, this time mostly depends on the production
+                volume .<br>
+                For high run volumes of worn surfaces, which must be repaired, however, pre-treatments' time is very
+                important.<br>
+                <br>
+                The following table<sup>1</sup> shows reasonable average standard labor times for electroplating,
+                according to different production volumes and parts sizes.
+            </p>
+        </blockquote>
+        <div align="center">
+            <center>
+                <table border="1" width="80%">
+                    <tbody>
+                        <tr>
+                            <td align="center">Type of production</td>
+                            <td align="center" colspan="3"><strong>Local</strong> production</td>
+                            <td align="center" colspan="3"><strong>Industrial</strong> production</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="14%"><strong>Time [min/part]</strong></td>
+                            <td align="center" width="14%"><em>5 parts</em></td>
+                            <td align="center" width="14%"><em>100 parts</em></td>
+                            <td align="center" width="14%"><em>500 parts</em></td>
+                            <td align="center" width="14%"><em>1000 parts</em></td>
+                            <td align="center" width="15%"><em>5000 parts</em></td>
+                            <td align="center" width="15%"><em>10000 parts</em></td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="14%"><em>Small (1cm2)</em></td>
+                            <td align="center" width="14%">15</td>
+                            <td align="center" width="14%">2</td>
+                            <td align="center" width="14%">0.4</td>
+                            <td align="center" width="14%">0..25</td>
+                            <td align="center" width="15%">0.005</td>
+                            <td align="center" width="15%">0.005</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="14%"><em>Medium (1dm2)</em></td>
+                            <td align="center" width="14%">20</td>
+                            <td align="center" width="14%">3</td>
+                            <td align="center" width="14%">0.6</td>
+                            <td align="center" width="14%">0.12</td>
+                            <td align="center" width="15%">0.024</td>
+                            <td align="center" width="15%">0.024</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="14%"><em>Large (100dm2)</em></td>
+                            <td align="center" width="14%">25</td>
+                            <td align="center" width="14%">4</td>
+                            <td align="center" width="14%">0.8</td>
+                            <td align="center" width="14%">0.12</td>
+                            <td align="center" width="15%">0.024</td>
+                            <td align="center" width="15%">0.024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
+        </div>
+        <p align="center"><strong>Tab. 4</strong> <em>Reasonable average labor times of electroplating processes </em>
+            <font color="#000000"><em>or different productions contexts (surface areas of the part, production
+                    volume)</em></font><em>.</em>
+        </p>
+        <blockquote>
+            <p align="left"><sup>
+                    <font size="1">1</font>
+                </sup>
+                <font size="2"> Values set according to a discussion with Peter Leisner.</font>
+            </p>
         </blockquote>
         <blockquote>
-        <blockquote>
-        <p align="left">T = t<sub>a</sub> + t<sub>b</sub> [min/part]</p>
+            <p align="left">Therefore, the total time employed is the sum of t<sub>a</sub> and t<sub>b</sub>: </p>
         </blockquote>
+        <blockquote>
+            <blockquote>
+                <p align="left">T = t<sub>a</sub> + t<sub>b</sub> [min/part]</p>
+            </blockquote>
         </blockquote>
         <p><br>
-        Considering the parameters previously described, in order to get the labor cost related to electroplating of one component, one has to multiply the hourly wages by the throughput time of the part.</p>
+            Considering the parameters previously described, in order to get the labor cost related to electroplating of
+            one component, one has to multiply the hourly wages by the throughput time of the part.</p>
         <blockquote>
-        <blockquote>
-        <table border="1" cellpadding="0" cellspacing="0" width="25%">
-        <tbody><tr><td align="center" width="100%">C<sub>l</sub> = w<sub>l</sub>·T / 60	[DKK/part]</td></tr>
-        </tbody></table>
-        </blockquote>
+            <blockquote>
+                <table border="1" cellpadding="0" cellspacing="0" width="25%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>l</sub> = w<sub>l</sub>·T / 60 [$/part]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
         <p>Table 4 indicates the required labor time for six different production scenarios.<br>
-        In order to determine proper time-per-part values from this table, it is important to first define the type of production one is running, i.e. <strong>local</strong> or <strong>industrial </strong>production.<br>
-        Within these two categories one can locate the suitable <u>small</u>, <u>medium</u> or <u>large</u> production volume. Inter- and extrapolations with respect to production volume may be done as well, but only within a 
-        category. Any inter- or extrapolation between categories leads to substantial errors.</p>
-        <p>For production volumes smaller than 5 parts the same values as for 5 parts are reasonable ones. For volumes higher than 5000 parts there's almost no gain in time for an increase of production, and 
-        therefore the values considered for 5000 parts can be used. For volumes between 500 and 1000 parts one can use an extrapolation of the values set either for 500 or 1000, according to the type of 
-        production considered.</p>
-        <p>The same considerations can be done for the values of the bath's size in table 3, even if the values are much more similar, and therefore only three scenarios are taken into consideration.</p>
+            In order to determine proper time-per-part values from this table, it is important to first define the type
+            of production one is running, i.e. <strong>local</strong> or <strong>industrial </strong>production.<br>
+            Within these two categories one can locate the suitable <u>small</u>, <u>medium</u> or <u>large</u>
+            production volume. Inter- and extrapolations with respect to production volume may be done as well, but only
+            within a
+            category. Any inter- or extrapolation between categories leads to substantial errors.</p>
+        <p>For production volumes smaller than 5 parts the same values as for 5 parts are reasonable ones. For volumes
+            higher than 5000 parts there's almost no gain in time for an increase of production, and
+            therefore the values considered for 5000 parts can be used. For volumes between 500 and 1000 parts one can
+            use an extrapolation of the values set either for 500 or 1000, according to the type of
+            production considered.</p>
+        <p>The same considerations can be done for the values of the bath's size in table 3, even if the values are much
+            more similar, and therefore only three scenarios are taken into consideration.</p>
         <p align="left"><strong>3. EQUIPMENT COSTS</strong><br>
-        <br>
-        The estimate of equipment costs is the same as for labor costs. In this case, one has to consider a hourly cost of the equipment "w<sub>e</sub>" [DKK/h], which can be empirically estimated<sup>1</sup> to be about 35 DKK/h.<br>
-        Therefore the cost per part, related to the use of the electroplating equipment is calculated by the formula:</p>
+            <br>
+            The estimate of equipment costs is the same as for labor costs. In this case, one has to consider a hourly
+            cost of the equipment "w<sub>e</sub>" [$/h], which can be empirically estimated<sup>1</sup> to be about 35
+            $/h.<br>
+            Therefore the cost per part, related to the use of the electroplating equipment is calculated by the
+            formula:
+        </p>
         <blockquote>
-        <blockquote>
-        <table border="1" cellpadding="0" cellspacing="0" width="25%">
-        <tbody><tr><td align="center" width="100%">C<sub>e</sub> = w<sub>e</sub>·T / 60 [DKK/part]</td></tr>
-        </tbody></table>
+            <blockquote>
+                <table border="1" cellpadding="0" cellspacing="0" width="25%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>e</sub> = w<sub>e</sub>·T / 60 [$/part]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
-        </blockquote>
-        <p><sup><font size="1">1</font></sup><font size="2"> From the discussion of surface treatment companies.</font></p>
+        <p><sup>
+                <font size="1">1</font>
+            </sup>
+            <font size="2"> From the discussion of surface treatment companies.</font>
+        </p>
         <p><br>
-        <strong>-TOTAL COST</strong><br>
-        <br>
-        Finally, the total cost for electroplating an object is:</p>
+            <strong>-TOTAL COST</strong><br>
+            <br>
+            Finally, the total cost for electroplating an object is:
+        </p>
         <blockquote>
-        <blockquote>
-        <table border="1" width="25%">
-        <tbody><tr><td align="center" width="100%">C<sub>t</sub> = C<sub>m</sub> + C<sub>l</sub>+ C<sub>e</sub></td></tr>
-        </tbody></table>
-        </blockquote>
+            <blockquote>
+                <table border="1" width="25%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>t</sub> = C<sub>m</sub> + C<sub>l</sub>+ C<sub>e</sub>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
         <p>&nbsp;</p>
-        <p><font size="4"><strong>PRACTICAL EXAMPLES</strong></font><br>
-        <br>
-        The following cases are not rigorous examples of how to calculate costs of electroplating an object, but just a simple aid for understanding the above shown methodology.<br>
-        This is just a method which tries to simplify the extremely huge amount of parameters conditioning electroplating cost. <br>
-        The attempt is to select the most important variables, and to give them average values which can be satisfying representations of the real industrial uses of electroplating processes.<br>
-        Therefore the method has many limits, and values are just reasonable and give only indicative solutions.</p>
+        <p>
+            <font size="4"><strong>PRACTICAL EXAMPLES</strong></font><br>
+            <br>
+            The following cases are not rigorous examples of how to calculate costs of electroplating an object, but
+            just a simple aid for understanding the above shown methodology.<br>
+            This is just a method which tries to simplify the extremely huge amount of parameters conditioning
+            electroplating cost. <br>
+            The attempt is to select the most important variables, and to give them average values which can be
+            satisfying representations of the real industrial uses of electroplating processes.<br>
+            Therefore the method has many limits, and values are just reasonable and give only indicative solutions.
+        </p>
         <p align="left"><br>
-        <strong>- CANDLESTICK (silver-plating)</strong></p>
+            <strong>- CANDLESTICK (silver-plating)</strong>
+        </p>
         <p align="center">&nbsp;</p>
         <table cellpadding="50" cellspacing="0" width="100%">
-        <tbody><tr><td align="right" width="50%"><img src="../gifs/kompstag.gif" align="bottom" width="100" height="492"></td><td width="50%"><img src="../jpgs/lystag.jpg" align="bottom" width="115" height="300"></td></tr>
-        </tbody></table>
-        <p align="left">Candlestick is silver plated for decoration reasons. Commonly, only one or few parts are plated at once for restoring worn surfaces. This would though imply very much labor for preparing the surface prior 
-        to coating, and therefore it wouldn't be respected the standard conditions considered in the method.<br>
-        The case which is going to be shown regards the production of large quantities of new candlesticks from metal, which need to be coated by silver as the final step of the production, but which don't require 
-        too much labor. This is therefore a more typical case of industrial production (e.g. medium-low production volume ~ 100 parts). <br>
-        <br>
-        <br>
-        <strong>1. Material cost</strong></p>
-        <blockquote>
-        <p align="left"><em>- Calculation of the surface area</em><br>
-        This candlestick has a very complicated shape. Therefore, it would be very difficult to calculate its surface area. <br>
-        A reasonable approximation though, seems to be the one made using a cut pyramid which circumscribes the object. Its surface area is 8.2 dm<sup>2</sup> (S = 8.2 dm<sup>2</sup>/part).(See "<a href="empirica.htm"><em>Empirical 
-        Calculation of the Surface Area of an Object</em></a><em>, </em>Andrea Mazzilli &amp; Torben Lenau, 1996").</p>
-        </blockquote>
-        <blockquote>
-        <p align="left"><em>- Coating thickness</em><br>
-        Typical coating thickness for silver-plating ranges between 2.5 and 25 µm (table 1).<br>
-        Therefore, since this application is not a special case, a value close to the typical one of 12.5 µm is used (t = 13 µm.)</p>
-        </blockquote>
-        <blockquote>
-        <p align="left"><em>- Material's density</em></p>
-        </blockquote>
-        <blockquote>
-        <blockquote>
-        <p align="left">q<sub>m</sub>= 0.01·10.5 = 0.105 [g/dm<sup>2</sup>·µm]	(see table 1)</p>
-        </blockquote>
-        </blockquote>
-        <blockquote>
-        <p align="left"><em>- Material price</em><br>
-        The price of silver, as the one of all the other metals, varies every day, but its average price is about 1.4 DKK/g (p = 1.4 DKK/g., from table 1)<br>
+            <tbody>
+                <tr>
+                    <td align="right" width="50%"><img src="../gifs/kompstag.gif" align="bottom" width="100"
+                            height="492"></td>
+                    <td width="50%"><img src="../jpgs/lystag.jpg" align="bottom" width="115" height="300"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p align="left">Candlestick is silver plated for decoration reasons. Commonly, only one or few parts are plated
+            at once for restoring worn surfaces. This would though imply very much labor for preparing the surface prior
+            to coating, and therefore it wouldn't be respected the standard conditions considered in the method.<br>
+            The case which is going to be shown regards the production of large quantities of new candlesticks from
+            metal, which need to be coated by silver as the final step of the production, but which don't require
+            too much labor. This is therefore a more typical case of industrial production (e.g. medium-low production
+            volume ~ 100 parts). <br>
+            <br>
+            <br>
+            <strong>1. Material cost</strong>
         </p>
+        <blockquote>
+            <p align="left"><em>- Calculation of the surface area</em><br>
+                This candlestick has a very complicated shape. Therefore, it would be very difficult to calculate its
+                surface area. <br>
+                A reasonable approximation though, seems to be the one made using a cut pyramid which circumscribes the
+                object. Its surface area is 8.2 dm<sup>2</sup> (S = 8.2 dm<sup>2</sup>/part).(See "<a
+                    href="empirica.htm"><em>Empirical
+                        Calculation of the Surface Area of an Object</em></a><em>, </em>Andrea Mazzilli &amp; Torben
+                Lenau, 1996").</p>
+        </blockquote>
+        <blockquote>
+            <p align="left"><em>- Coating thickness</em><br>
+                Typical coating thickness for silver-plating ranges between 2.5 and 25 µm (table 1).<br>
+                Therefore, since this application is not a special case, a value close to the typical one of 12.5 µm is
+                used (t = 13 µm.)</p>
+        </blockquote>
+        <blockquote>
+            <p align="left"><em>- Material's density</em></p>
+        </blockquote>
+        <blockquote>
+            <blockquote>
+                <p align="left">q<sub>m</sub>= 0.01·10.5 = 0.105 [g/dm<sup>2</sup>·µm] (see table 1)</p>
+            </blockquote>
+        </blockquote>
+        <blockquote>
+            <p align="left"><em>- Material price</em><br>
+                The price of silver, as the one of all the other metals, varies every day, but its average price is
+                about 1.4 $/g (p = 1.4 $/g., from table 1)<br>
+            </p>
         </blockquote>
         <p align="left">Based on the values previously determined the material's cost is:</p>
         <blockquote>
-        <blockquote>
-        <table border="1" cellpadding="0" cellspacing="0" width="35%">
-        <tbody><tr><td align="center" width="100%">C<sub>m</sub>= 0.105·13·1.4·8.2 = 15.7 [DKK/part].</td></tr>
-        </tbody></table>
-        </blockquote>
-        </blockquote>
-        <p align="left"><br>
-        <strong>2. Labour cost</strong><br>
-        <br>
-        <em>- Hourly wages</em><br>
-        As previously indicated, the average hourly wages has been set to 300 DKK/h.<br>
-        <br>
-        <em><u>Estimating of the time employed</u></em></p>
-        <blockquote>
-        <p align="left"><em>- Electroplating time</em><br>
-        Using the formula for T<sub>b</sub>, with:</p>
-        <blockquote>
-        <p align="left">t = 13 [µm];	d<sub>m</sub>= 10.5 [g/cm3];	I = 1 [Amp/dm2]; E = 4.024 [g/Amp·h]; Y = 100 %</p>
-        </blockquote>
-        <p align="left">values taken from table 2.) the bath time is:</p>
-        <blockquote>
-        <p align="left">T<sub>b</sub>= (13·10.5·60)/ (1·4.024·100) ~ 21 [min]</p>
-        </blockquote>
-        <p align="left">Now, from the bath time, the plating time of a single part has to be found. <br>
-        For this purpose the bath's size is an important variable. In order to get general results which can be useful in any case, the average of the plating time needed using two reasonable bath's 
-        sizes is considered. But one has to be aware that for large baths the plating time per part is decreased, while for small ones this time is increased, with an obvious effect on the plating cost. 
-        Considering the suggestions of table 3. regarding bath's sizes, one has:</p>
-        <blockquote>
-        <p align="left">t<sub>b1</sub> = (21·8.2)/ 20 = 8.6 [min/part];	t<sub>b2</sub> = (21·8.2)/400 = 0.4 [min/part]	<br>
-        Average time: t<sub>b</sub> = 4.5 [min/part]	</p>
-        </blockquote>
-        <p align="left"><em>- Labor time</em><br>
-        According to tab. 4, the labor time employed for such a production (medium size, 100 parts), is about 3 [min/part].</p>
+            <blockquote>
+                <table border="1" cellpadding="0" cellspacing="0" width="35%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>m</sub>= 0.105·13·1.4·8.2 = 15.7 [$/part].</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
         <p align="left"><br>
-        Therefore the total time employed is: T = 4.5 + 3 = 7.5 [min/part].<br>
-        <br>
-        Based on these values the labor cost is: </p>
+            <strong>2. Labour cost</strong><br>
+            <br>
+            <em>- Hourly wages</em><br>
+            As previously indicated, the average hourly wages has been set to 300 $/h.<br>
+            <br>
+            <em><u>Estimating of the time employed</u></em>
+        </p>
         <blockquote>
-        <blockquote>
-        <table border="1" cellpadding="0" cellspacing="0" width="35%">
-        <tbody><tr><td align="center" width="100%">C<sub>l</sub> = 300·(7.5/60) = 37.5 [DKK/part].</td></tr>
-        </tbody></table>
+            <p align="left"><em>- Electroplating time</em><br>
+                Using the formula for T<sub>b</sub>, with:</p>
+            <blockquote>
+                <p align="left">t = 13 [µm]; d<sub>m</sub>= 10.5 [g/cm3]; I = 1 [Amp/dm2]; E = 4.024 [g/Amp·h]; Y = 100
+                    %</p>
+            </blockquote>
+            <p align="left">values taken from table 2.) the bath time is:</p>
+            <blockquote>
+                <p align="left">T<sub>b</sub>= (13·10.5·60)/ (1·4.024·100) ~ 21 [min]</p>
+            </blockquote>
+            <p align="left">Now, from the bath time, the plating time of a single part has to be found. <br>
+                For this purpose the bath's size is an important variable. In order to get general results which can be
+                useful in any case, the average of the plating time needed using two reasonable bath's
+                sizes is considered. But one has to be aware that for large baths the plating time per part is
+                decreased, while for small ones this time is increased, with an obvious effect on the plating cost.
+                Considering the suggestions of table 3. regarding bath's sizes, one has:</p>
+            <blockquote>
+                <p align="left">t<sub>b1</sub> = (21·8.2)/ 20 = 8.6 [min/part]; t<sub>b2</sub> = (21·8.2)/400 = 0.4
+                    [min/part] <br>
+                    Average time: t<sub>b</sub> = 4.5 [min/part] </p>
+            </blockquote>
+            <p align="left"><em>- Labor time</em><br>
+                According to tab. 4, the labor time employed for such a production (medium size, 100 parts), is about 3
+                [min/part].</p>
         </blockquote>
+        <p align="left"><br>
+            Therefore the total time employed is: T = 4.5 + 3 = 7.5 [min/part].<br>
+            <br>
+            Based on these values the labor cost is:
+        </p>
+        <blockquote>
+            <blockquote>
+                <table border="1" cellpadding="0" cellspacing="0" width="35%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>l</sub> = 300·(7.5/60) = 37.5 [$/part].</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
         <p><br>
-        <strong>3. Equipment cost</strong><br>
-        <br>
-        Using the same time and just considering the hourly cost of the equipment, this cost is:</p>
+            <strong>3. Equipment cost</strong><br>
+            <br>
+            Using the same time and just considering the hourly cost of the equipment, this cost is:
+        </p>
         <blockquote>
-        <blockquote>
-        <table border="1" cellpadding="0" cellspacing="0" width="35%">
-        <tbody><tr><td align="center" width="100%">C<sub>e</sub> = 35·(7.5/60) = 4.4 [DKK/part].</td></tr>
-        </tbody></table>
-        </blockquote>
+            <blockquote>
+                <table border="1" cellpadding="0" cellspacing="0" width="35%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>e</sub> = 35·(7.5/60) = 4.4 [$/part].</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
         <p><br>
-        <strong>· Total cost</strong></p>
+            <strong>· Total cost</strong>
+        </p>
         <p>Considering all the partial costs found, the total cost is: </p>
         <blockquote>
-        <blockquote>
-        <table border="1" width="35%">
-        <tbody><tr><td align="center" width="100%">C<sub>t</sub> = 15.7 + 37.5 + 4.4 = 57.6 [DKK/part].</td></tr>
-        </tbody></table>
-        <p>&nbsp;</p>
-        </blockquote>
+            <blockquote>
+                <table border="1" width="35%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>t</sub> = 15.7 + 37.5 + 4.4 = 57.6 [$/part].</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>&nbsp;</p>
+            </blockquote>
         </blockquote>
         <p><strong>- WATER TAP (chromium plating)</strong></p>
         <p align="center">&nbsp;</p>
         <table cellpadding="50" cellspacing="0" width="100%">
-        <tbody><tr><td align="right" width="50%"><img src="../gifs/vandtek.gif" align="bottom" width="300" height="322"></td><td width="50%"><img src="../jpgs/vandhan.jpg" align="bottom" width="301" height="175"></td></tr>
-        </tbody></table>
+            <tbody>
+                <tr>
+                    <td align="right" width="50%"><img src="../gifs/vandtek.gif" align="bottom" width="300"
+                            height="322"></td>
+                    <td width="50%"><img src="../jpgs/vandhan.jpg" align="bottom" width="301" height="175"></td>
+                </tr>
+            </tbody>
+        </table>
         <p>Water tap is chromium plated for decoration reasons as well as for corrosion and aging resistance. <br>
-        In order to plate with chromium a part, this previously has to be prepared by copper and nickel plating. Therefore, water tap is made of diecasted zinc, and then successively coated by copper (1) nickel 
-        (2) and chromium (3). <br>
-        The case which is going to be shown regards the production of large quantities of new water taps, which therefore don't require too much labor. This is a more typical case of industrial production (e.g. 
-        medium-low production volume ~100 parts). <br>
-        <br>
-        <strong>1. Material cost</strong></p>
-        <blockquote>
-        <p><em>- Calculation of the surface area</em><br>
-        Water tap is an object which can be considered as composed of more parts; each of them can be more easily approximated with a common geometry. For the purpose of this article 
-        though, is the global surface which is required.<br>
-        Approximating the water tap body and the outlet pipe with circumscribed cylinders, and the on/off handle with a parallelepiped (see "<a href="empirica.htm"><em>Empirical Calculation of the Surface Area of an 
-        Object</em></a><em>, </em>Andrea Mazzilli &amp; Torben Lenau, 1996"), the value of the surface area of the water tap is: </p>
-        </blockquote>
-        <blockquote>
-        <blockquote>
-        <p>S = 5.7 dm<sup>2</sup>. </p>
-        </blockquote>
-        </blockquote>
-        <blockquote>
-        <p><em>- Coating thickness</em><br>
-        Diecasted zinc doesn’t have a very smooth surface. Therefore following copper and nickel plating have to depose quite thick layers of material, in order to provide a suitable surface to the 
-        very thin following chromium layer. Therefore both copper and nickel will be deposited with a layer of 25 µm, while chromium only 0.3 µm to supply the object with suitable sheen<sup>1</sup>.</p>
-        </blockquote>
-        <blockquote>
-        <blockquote>
-        <p>t<sub>1</sub>= t2 = 25µm; t3 = 0.3µm</p>
-        </blockquote>
-        </blockquote>
-        <blockquote>
-        <p><sup><font size="1">1</font></sup><font size="2"> The values are set according to table 1 and to the discussion with Peter Leisner about the specificity of this case.</font></p>
-        </blockquote>
-        <blockquote>
-        <p><em>- Material's density</em></p>
-        </blockquote>
-        <blockquote>
-        <blockquote>
-        <p>q<sub>m1</sub>= 0.01· 8.9 = 0.089 [g/dm<sup>2</sup>·µm]<br>
-        q<sub>m2</sub>= 0.01· 8.9 = 0.089 [g/dm<sup>2</sup>·µm]<br>
-        q<sub>m3</sub>= 0.01· 7.2 = 0.072 [g/dm<sup>2</sup>·µm]</p>
-        </blockquote>
-        </blockquote>
-        <blockquote>
-        <p>The values of densities in [g/cm<sup>3</sup>]are taken from table 1.</p>
-        </blockquote>
-        <blockquote>
-        <p><em>- Material price</em><br>
-        The price of metals varies every day, but their average price can be set to about:</p>
-        </blockquote>
-        <blockquote>
-        <blockquote>
-        <p>p<sub>1</sub> = 25 DKK/Kg<br>
-        p<sub>2</sub> = 80 DKK/Kg<br>
-        p<sub>3</sub> = 8 DKK/Kg</p>
-        </blockquote>
-        </blockquote>
-        <blockquote>
-        <p>(see table 1).<br>
+            In order to plate with chromium a part, this previously has to be prepared by copper and nickel plating.
+            Therefore, water tap is made of diecasted zinc, and then successively coated by copper (1) nickel
+            (2) and chromium (3). <br>
+            The case which is going to be shown regards the production of large quantities of new water taps, which
+            therefore don't require too much labor. This is a more typical case of industrial production (e.g.
+            medium-low production volume ~100 parts). <br>
+            <br>
+            <strong>1. Material cost</strong>
         </p>
+        <blockquote>
+            <p><em>- Calculation of the surface area</em><br>
+                Water tap is an object which can be considered as composed of more parts; each of them can be more
+                easily approximated with a common geometry. For the purpose of this article
+                though, is the global surface which is required.<br>
+                Approximating the water tap body and the outlet pipe with circumscribed cylinders, and the on/off handle
+                with a parallelepiped (see "<a href="empirica.htm"><em>Empirical Calculation of the Surface Area of an
+                        Object</em></a><em>, </em>Andrea Mazzilli &amp; Torben Lenau, 1996"), the value of the surface
+                area of the water tap is: </p>
+        </blockquote>
+        <blockquote>
+            <blockquote>
+                <p>S = 5.7 dm<sup>2</sup>. </p>
+            </blockquote>
+        </blockquote>
+        <blockquote>
+            <p><em>- Coating thickness</em><br>
+                Diecasted zinc doesn’t have a very smooth surface. Therefore following copper and nickel plating have to
+                depose quite thick layers of material, in order to provide a suitable surface to the
+                very thin following chromium layer. Therefore both copper and nickel will be deposited with a layer of
+                25 µm, while chromium only 0.3 µm to supply the object with suitable sheen<sup>1</sup>.</p>
+        </blockquote>
+        <blockquote>
+            <blockquote>
+                <p>t<sub>1</sub>= t2 = 25µm; t3 = 0.3µm</p>
+            </blockquote>
+        </blockquote>
+        <blockquote>
+            <p><sup>
+                    <font size="1">1</font>
+                </sup>
+                <font size="2"> The values are set according to table 1 and to the discussion with Peter Leisner about
+                    the specificity of this case.</font>
+            </p>
+        </blockquote>
+        <blockquote>
+            <p><em>- Material's density</em></p>
+        </blockquote>
+        <blockquote>
+            <blockquote>
+                <p>q<sub>m1</sub>= 0.01· 8.9 = 0.089 [g/dm<sup>2</sup>·µm]<br>
+                    q<sub>m2</sub>= 0.01· 8.9 = 0.089 [g/dm<sup>2</sup>·µm]<br>
+                    q<sub>m3</sub>= 0.01· 7.2 = 0.072 [g/dm<sup>2</sup>·µm]</p>
+            </blockquote>
+        </blockquote>
+        <blockquote>
+            <p>The values of densities in [g/cm<sup>3</sup>]are taken from table 1.</p>
+        </blockquote>
+        <blockquote>
+            <p><em>- Material price</em><br>
+                The price of metals varies every day, but their average price can be set to about:</p>
+        </blockquote>
+        <blockquote>
+            <blockquote>
+                <p>p<sub>1</sub> = 25 $/Kg<br>
+                    p<sub>2</sub> = 80 $/Kg<br>
+                    p<sub>3</sub> = 8 $/Kg</p>
+            </blockquote>
+        </blockquote>
+        <blockquote>
+            <p>(see table 1).<br>
+            </p>
         </blockquote>
         <p>Based on the values previously found out and set, the material's cost is:</p>
         <blockquote>
-        <blockquote>
-        <p>C<sub>m1</sub> = 0.089·25·0.025·5.7 = 0.3 [DKK/part].<br>
-        C<sub>m2</sub> = 0.089·25·0.08·5.7 = 1 [DKK/part].<br>
-        C<sub>m3</sub> = 0.071·0.3·0.008·5.7 ~ 0 [DKK/part].</p>
-        <table border="1" cellpadding="0" cellspacing="0" width="25%">
-        <tbody><tr><td align="center" width="100%">C<sub>mtot</sub> = 1.3 [DKK/part]</td></tr>
-        </tbody></table>
-        </blockquote>
+            <blockquote>
+                <p>C<sub>m1</sub> = 0.089·25·0.025·5.7 = 0.3 [$/part].<br>
+                    C<sub>m2</sub> = 0.089·25·0.08·5.7 = 1 [$/part].<br>
+                    C<sub>m3</sub> = 0.071·0.3·0.008·5.7 ~ 0 [$/part].</p>
+                <table border="1" cellpadding="0" cellspacing="0" width="25%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>mtot</sub> = 1.3 [$/part]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
         <p><strong>2. Labor cost</strong><br>
-        <br>
-        <em>- Hourly wages</em><br>
-        As previously indicated, the average hourly wages has been set to 300 DKK/h.<br>
-        <br>
-        <em><u>Estimating of the time employed</u></em></p>
+            <br>
+            <em>- Hourly wages</em><br>
+            As previously indicated, the average hourly wages has been set to 300 $/h.<br>
+            <br>
+            <em><u>Estimating of the time employed</u></em>
+        </p>
         <blockquote>
-        <p><em>- Specific electroplating time</em><br>
-        Using the formula for T<sub>b</sub>, with the following values, taken from tables 1. &amp; 2. (except the ones for thickness, previously set):<br>
-        <br>
-        t<sub>1</sub> = 25 [µm];	t<sub>2</sub> = 25 [µm]; t<sub>3</sub> = 0.3 [µm]; </p>
+            <p><em>- Specific electroplating time</em><br>
+                Using the formula for T<sub>b</sub>, with the following values, taken from tables 1. &amp; 2. (except
+                the ones for thickness, previously set):<br>
+                <br>
+                t<sub>1</sub> = 25 [µm]; t<sub>2</sub> = 25 [µm]; t<sub>3</sub> = 0.3 [µm];
+            </p>
         </blockquote>
         <blockquote>
-        <p>dm<sub>1</sub>= 8.9 [g/cm3];	dm<sub>2</sub>= 8.9 [g/cm3]; dm<sub>3</sub>= 7.2 [g/cm3];</p>
+            <p>dm<sub>1</sub>= 8.9 [g/cm3]; dm<sub>2</sub>= 8.9 [g/cm3]; dm<sub>3</sub>= 7.2 [g/cm3];</p>
         </blockquote>
         <blockquote>
-        <p>I<sub>1</sub> = 3 [Amp/dm2];	I<sub>2</sub>= 4 [Amp/dm2];	I<sub>3</sub> = 12 [Amp/dm2]</p>
+            <p>I<sub>1</sub> = 3 [Amp/dm2]; I<sub>2</sub>= 4 [Amp/dm2]; I<sub>3</sub> = 12 [Amp/dm2]</p>
         </blockquote>
         <blockquote>
-        <p>E<sub>1</sub> = 1.186 [g/Amp·h]; E<sub>2</sub>= 1.04 [g/Amp·h]; E<sub>3</sub> = 0.0032 [g/Amp·h];</p>
+            <p>E<sub>1</sub> = 1.186 [g/Amp·h]; E<sub>2</sub>= 1.04 [g/Amp·h]; E<sub>3</sub> = 0.0032 [g/Amp·h];</p>
         </blockquote>
         <blockquote>
-        <p>Y<sub>1</sub> = 100 %;	Y<sub>2</sub> = 95 %;	Y<sub>3</sub> = 10 %.</p>
+            <p>Y<sub>1</sub> = 100 %; Y<sub>2</sub> = 95 %; Y<sub>3</sub> = 10 %.</p>
         </blockquote>
         <blockquote>
-        <p>the bath's time is:</p>
-        <blockquote>
-        <p>T<sub>b1</sub>= (25·8.9·60)/ (3·1.186·100) ~ 37.5 [min]<br>
-        T<sub>b2</sub>= (25·8.9·60)/ (4·1.04·95) ~ 33.8 [min]<br>
-        T<sub>b3</sub>= (0.3·7.2·60)/ (12·0.032·10) ~ 33.75 [min]</p>
+            <p>the bath's time is:</p>
+            <blockquote>
+                <p>T<sub>b1</sub>= (25·8.9·60)/ (3·1.186·100) ~ 37.5 [min]<br>
+                    T<sub>b2</sub>= (25·8.9·60)/ (4·1.04·95) ~ 33.8 [min]<br>
+                    T<sub>b3</sub>= (0.3·7.2·60)/ (12·0.032·10) ~ 33.75 [min]</p>
+            </blockquote>
+            <p>Now, from the bath's time, the plating time of a single part has to be found. <br>
+                For this purpose the same consideration as for the previous example are applied.</p>
         </blockquote>
-        <p>Now, from the bath's time, the plating time of a single part has to be found. <br>
-        For this purpose the same consideration as for the previous example are applied.</p>
-        </blockquote>
         <blockquote>
-        <blockquote>
-        <p>t<sub>b1a</sub> = (37.5·5.7)/ 20 ~ 10.7 [min/part];	t<sub>b1b</sub> = (37.5·5.7)/400 ~ 0.5 [min/part]<br>
-        Average time: t<sub>b1</sub> ~ 5.6 [min/part].	<br>
-        <br>
-        t<sub>b2a</sub> = (33.8·5.7)/ 20 ~ 9.6 [min/part];	t<sub>b2b</sub> = (33.8·5.7)/400 ~ 0.5 [min/part]<br>
-        Average time: t<sub>b2</sub> ~ 5 [min/part].<br>
-        <br>
-        t<sub>b3a</sub> = (33.75·5.7)/ 20 ~ 9.6 [min/part];	t<sub>b3b</sub> = (33.75·5.7)/400 ~ 0.5 [min/part]<br>
-        Average time: t<sub>b3</sub> ~ 5 [min/part].	</p>
-        </blockquote>
-        <p><em>- Labour time</em><br>
-        The three plating processes are carried out by sequentially dipping and dripping the parts in and out the respective three baths. Since dripping time is very short, it can be considered as 
-        insignificant, and the fact of having three consecutive baths has an influence only on the global bath’s time.<br>
-        Therefore the labor time employed is found according to tab. 4, and for such a production (medium size, 100 parts), is about 3 [min/part].</p>
+            <blockquote>
+                <p>t<sub>b1a</sub> = (37.5·5.7)/ 20 ~ 10.7 [min/part]; t<sub>b1b</sub> = (37.5·5.7)/400 ~ 0.5
+                    [min/part]<br>
+                    Average time: t<sub>b1</sub> ~ 5.6 [min/part]. <br>
+                    <br>
+                    t<sub>b2a</sub> = (33.8·5.7)/ 20 ~ 9.6 [min/part]; t<sub>b2b</sub> = (33.8·5.7)/400 ~ 0.5
+                    [min/part]<br>
+                    Average time: t<sub>b2</sub> ~ 5 [min/part].<br>
+                    <br>
+                    t<sub>b3a</sub> = (33.75·5.7)/ 20 ~ 9.6 [min/part]; t<sub>b3b</sub> = (33.75·5.7)/400 ~ 0.5
+                    [min/part]<br>
+                    Average time: t<sub>b3</sub> ~ 5 [min/part].
+                </p>
+            </blockquote>
+            <p><em>- Labour time</em><br>
+                The three plating processes are carried out by sequentially dipping and dripping the parts in and out
+                the respective three baths. Since dripping time is very short, it can be considered as
+                insignificant, and the fact of having three consecutive baths has an influence only on the global bath’s
+                time.<br>
+                Therefore the labor time employed is found according to tab. 4, and for such a production (medium size,
+                100 parts), is about 3 [min/part].</p>
         </blockquote>
         <p>Therefore the total time employed is: T = 5.6 + 5 + 5 + 3 = 18.6 [min/part].<br>
-        <br>
-        Based on these values the labor cost is: </p>
+            <br>
+            Based on these values the labor cost is:
+        </p>
         <blockquote>
-        <blockquote>
-        <table border="1" cellpadding="0" cellspacing="0" width="30%">
-        <tbody><tr><td align="center" width="100%">C<sub>l</sub> = 300·(18.6/60) = 93 [DKK/part]</td></tr>
-        </tbody></table>
-        </blockquote>
+            <blockquote>
+                <table border="1" cellpadding="0" cellspacing="0" width="30%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>l</sub> = 300·(18.6/60) = 93 [$/part]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
         <p><strong>3. Equipment cost</strong><br>
-        <br>
-        Using the same time and just considering the hourly cost of the equipment, this cost is:</p>
+            <br>
+            Using the same time and just considering the hourly cost of the equipment, this cost is:
+        </p>
         <blockquote>
-        <blockquote>
-        <table border="1" cellpadding="0" cellspacing="0" width="30%">
-        <tbody><tr><td align="center" width="100%">C<sub>e</sub> = 35·(18.6/60) = 10.8 [DKK/part]</td></tr>
-        </tbody></table>
-        </blockquote>
+            <blockquote>
+                <table border="1" cellpadding="0" cellspacing="0" width="30%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>e</sub> = 35·(18.6/60) = 10.8 [$/part]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
         <p><strong>· Total cost</strong><br>
-        <br>
-        Considering all the partial costs found, the total cost is: </p>
+            <br>
+            Considering all the partial costs found, the total cost is:
+        </p>
         <blockquote>
-        <blockquote>
-        <table border="1" width="30%">
-        <tbody><tr><td align="center" width="100%">C<sub>t</sub> = 1.3 + 93 + 10.8 = 105.1 [DKK/part]</td></tr>
-        </tbody></table>
-        </blockquote>
+            <blockquote>
+                <table border="1" width="30%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>t</sub> = 1.3 + 93 + 10.8 = 105.1 [$/part]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
         <p>&nbsp;</p>
         <p><strong>- SPOON (gold plating)</strong></p>
-        <p>Number of parts: 1000; spoon dimensions (length:	200 mm; width:	20 … 50 mm); material thickness:	2 mm (ignored); length of "mouth piece":	60 mm.<br>
-        (Sketch)</p>
+        <p>Number of parts: 1000; spoon dimensions (length: 200 mm; width: 20 … 50 mm); material thickness: 2 mm
+            (ignored); length of "mouth piece": 60 mm.<br>
+            (Sketch)</p>
         <blockquote>
-        <blockquote>
-        <p><img src="../gifs/spoon.gif" align="bottom" width="400" height="231">&nbsp;</p>
-        </blockquote>
+            <blockquote>
+                <p><img src="../gifs/spoon.gif" align="bottom" width="400" height="231">&nbsp;</p>
+            </blockquote>
         </blockquote>
         <p><strong>1. Material Cost </strong></p>
         <blockquote>
-        <p>- <em>Surface area </em><br>
-        Assumption: The spoon can be described as a combination of the simple shapes ellipse and straight handle. The surface area may thus be calculated as follows:</p>
-        <blockquote>
-        <p>- Oval	A = 3.14 · a · b; S<sub>1</sub> = 2 · 3.14 · 0.25 · 0.3 ~ 0.47 [dm<sup>2</sup>]<br>
-        - Straight handle	S<sub>2</sub> = 2 · 0.2 · 1.4 ~ 0.56 [dm<sup>2</sup>]<br>
-        - Total surface area S = S<sub>1</sub> + S<sub>2</sub> = 1.03 [dm<sup>2</sup>/part]</p>
-        </blockquote>
-        <p><em>- Coating thickness </em></p>
-        <blockquote>
-        <p>t = 2 [µm]</p>
-        </blockquote>
-        <p><em>- Material density </em></p>
-        <blockquote>
-        <p>q<sub>m</sub> = 0.01 · 19.3 = 0.193 [g/(dm<sup>2</sup> · mm)]</p>
-        </blockquote>
-        <p><em>- Material price </em></p>
-        <blockquote>
-        <p>p = 100 000 [DKK/kg]</p>
-        <p>p = 100 [DKK/g]<br>
-        </p>
-        </blockquote>
-        <p>Based on the previous values</p>
-        <blockquote>
-        <p>C<sub>m</sub> = p · q<sub>m</sub> · S · t [DKK/part]</p>
-        <table border="1" cellpadding="0" cellspacing="0" width="35%">
-        <tbody><tr><td align="center" width="100%">C<sub>m</sub> = 100 · 0.193 · 1.03 · 2 = 39.76 [DKK/part]</td></tr>
-        </tbody></table>
-        </blockquote>
+            <p>- <em>Surface area </em><br>
+                Assumption: The spoon can be described as a combination of the simple shapes ellipse and straight
+                handle. The surface area may thus be calculated as follows:</p>
+            <blockquote>
+                <p>- Oval A = 3.14 · a · b; S<sub>1</sub> = 2 · 3.14 · 0.25 · 0.3 ~ 0.47 [dm<sup>2</sup>]<br>
+                    - Straight handle S<sub>2</sub> = 2 · 0.2 · 1.4 ~ 0.56 [dm<sup>2</sup>]<br>
+                    - Total surface area S = S<sub>1</sub> + S<sub>2</sub> = 1.03 [dm<sup>2</sup>/part]</p>
+            </blockquote>
+            <p><em>- Coating thickness </em></p>
+            <blockquote>
+                <p>t = 2 [µm]</p>
+            </blockquote>
+            <p><em>- Material density </em></p>
+            <blockquote>
+                <p>q<sub>m</sub> = 0.01 · 19.3 = 0.193 [g/(dm<sup>2</sup> · mm)]</p>
+            </blockquote>
+            <p><em>- Material price </em></p>
+            <blockquote>
+                <p>p = 100 000 [$/kg]</p>
+                <p>p = 100 [$/g]<br>
+                </p>
+            </blockquote>
+            <p>Based on the previous values</p>
+            <blockquote>
+                <p>C<sub>m</sub> = p · q<sub>m</sub> · S · t [$/part]</p>
+                <table border="1" cellpadding="0" cellspacing="0" width="35%">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="100%">C<sub>m</sub> = 100 · 0.193 · 1.03 · 2 = 39.76 [$/part]
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </blockquote>
         </blockquote>
         <p>&nbsp;</p>
         <p><strong>2. Labour cost</strong> </p>
         <p><em>- Hourly wages </em></p>
         <blockquote>
-        <p>w<sub>l</sub> = 300 [DKK/h]<br>
-        </p>
+            <p>w<sub>l</sub> = 300 [$/h]<br>
+            </p>
         </blockquote>
         <p><em><u>Estimating of the time employed</u></em></p>
         <blockquote>
-        <p>-<em> Specific electroplating time </em></p>
+            <p>-<em> Specific electroplating time </em></p>
         </blockquote>
         <blockquote>
-        <p>t<sub>b</sub> = T<sub>b</sub>· S/b [min/part]<br>
-        T<sub>b</sub>	= (t · d<sub>m</sub> · 60)/(I · E · Y) [min.]<br>
-        T<sub>b</sub> = 2 [mm] · 19.3 [g/cm<sup>3</sup>] · 60/ (0.25 [A/dm<sup>2</sup>] · 6.62 [g/Ah] · 90) ~ 15.55 [min]</p>
-        <p>Considering that the production of 1000 spoons is reasonably carried out by large industrial plants, the cadse presented is comparable to the scenario (5000 parts / 1dm<sup>2</sup>) in tab. 3. 
-        Therefore max and min bath's sizes are the same and of 4000 liter.</p>
-        <blockquote>
-        <p>- S = 1.03 [dm<sup>2</sup>/part]<br>
-        - Bath size = 4000 [liter]<br>
-        - b = 1/10 · bath size = 400 [dm<sup>2</sup>]<br>
-        - t<sub>b</sub> = 15.55 · 1.03 / 400 ~ 0.05 [min/part]<br>
-        <br>
-        </p>
-        </blockquote>
-        <p><em>- Labour time</em> </p>
-        <p>Based on the consideration done on table 4:</p>
-        <blockquote>
-        <p>t<sub>a</sub> = 0.024 · 5 = 0.12 [min/part]</p>
-        <p>&nbsp;</p>
-        </blockquote>
+            <p>t<sub>b</sub> = T<sub>b</sub>· S/b [min/part]<br>
+                T<sub>b</sub> = (t · d<sub>m</sub> · 60)/(I · E · Y) [min.]<br>
+                T<sub>b</sub> = 2 [mm] · 19.3 [g/cm<sup>3</sup>] · 60/ (0.25 [A/dm<sup>2</sup>] · 6.62 [g/Ah] · 90) ~
+                15.55 [min]</p>
+            <p>Considering that the production of 1000 spoons is reasonably carried out by large industrial plants, the
+                cadse presented is comparable to the scenario (5000 parts / 1dm<sup>2</sup>) in tab. 3.
+                Therefore max and min bath's sizes are the same and of 4000 liter.</p>
+            <blockquote>
+                <p>- S = 1.03 [dm<sup>2</sup>/part]<br>
+                    - Bath size = 4000 [liter]<br>
+                    - b = 1/10 · bath size = 400 [dm<sup>2</sup>]<br>
+                    - t<sub>b</sub> = 15.55 · 1.03 / 400 ~ 0.05 [min/part]<br>
+                    <br>
+                </p>
+            </blockquote>
+            <p><em>- Labour time</em> </p>
+            <p>Based on the consideration done on table 4:</p>
+            <blockquote>
+                <p>t<sub>a</sub> = 0.024 · 5 = 0.12 [min/part]</p>
+                <p>&nbsp;</p>
+            </blockquote>
         </blockquote>
         <p>T = t<sub>b</sub> +t<sub>a</sub> = 0.12 + 0.05 = 0.17 [min/part]</p>
         <p>Based on these values the labor cost is:</p>
         <blockquote>
-        <p>C<sub>l</sub> = w<sub>l</sub> /60 · T [DKK/part]</p>
-        <table border="1" cellpadding="0" cellspacing="0" width="35%">
-        <tbody><tr><td align="center" width="100%">C<sub>l</sub> = 300 /60· 0.17 = 0,85 [DKK/part]</td></tr>
-        </tbody></table>
+            <p>C<sub>l</sub> = w<sub>l</sub> /60 · T [$/part]</p>
+            <table border="1" cellpadding="0" cellspacing="0" width="35%">
+                <tbody>
+                    <tr>
+                        <td align="center" width="100%">C<sub>l</sub> = 300 /60· 0.17 = 0,85 [$/part]</td>
+                    </tr>
+                </tbody>
+            </table>
         </blockquote>
         <p>&nbsp;</p>
         <p><strong>3. Equipment cost</strong></p>
         <p>- <em>Hourly equipment cost</em></p>
         <blockquote>
-        <p>Estimate: w<sub>e</sub> = 35 [DKK/h]<br>
-        </p>
+            <p>Estimate: w<sub>e</sub> = 35 [$/h]<br>
+            </p>
         </blockquote>
         <p>- <em>Employed time </em></p>
         <blockquote>
-        <p>T = 0.17 [min/part] (see 2. Labour cost)<br>
-        </p>
-        <p>Ce = w<sub>e</sub> /60 · T [DKK/part]</p>
+            <p>T = 0.17 [min/part] (see 2. Labour cost)<br>
+            </p>
+            <p>Ce = w<sub>e</sub> /60 · T [$/part]</p>
         </blockquote>
         <blockquote>
-        <table border="1" cellpadding="0" cellspacing="0" width="35%">
-        <tbody><tr><td align="center" width="100%">Ce = 35 /60 · 0.17 ~ 0,1[DKK/part]</td></tr>
-        </tbody></table>
-        <p>&nbsp;</p>
+            <table border="1" cellpadding="0" cellspacing="0" width="35%">
+                <tbody>
+                    <tr>
+                        <td align="center" width="100%">Ce = 35 /60 · 0.17 ~ 0,1[$/part]</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
         </blockquote>
         <p><strong>4. Total cost </strong><br>
         </p>
         <blockquote>
-        <p>C = C<sub>m</sub> + C<sub>l</sub> + C<sub>e</sub> [DKK/part]</p>
-        <table border="1" width="40%">
-        <tbody><tr><td align="center" width="100%">C = 39.76 + .85 + 0.1 ~ 40.7 [DKK/part]</td></tr>
-        </tbody></table>
-        <p>&nbsp;</p>
+            <p>C = C<sub>m</sub> + C<sub>l</sub> + C<sub>e</sub> [$/part]</p>
+            <table border="1" width="40%">
+                <tbody>
+                    <tr>
+                        <td align="center" width="100%">C = 39.76 + .85 + 0.1 ~ 40.7 [$/part]</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
         </blockquote>
         <p><strong>- CONCLUSION</strong><br>
-        <br>
-        The examples exposed are used to show how this simplified method for estimating the cost of electroplating processes can be used. <br>
-        The method doesn’t aim to provide precise values, which can enable a very precise calculation of the costs.<br>
-        Indeed it aims to be easily understood and used, providing a quick way to get ideas about possible magnitude orders of electroplating cost of a part, and therefore supplying with data which enables a 
-        comparison with alternative solutions, already in the early phase of the design stage.<br>
-        If considered from this point of view all the approximations and the average considerations contained in it, don’t decrease its meaningfulness, and the method con be a valid aid for overall considerations on 
-        the costs involved in electroplating.<br>
-        On the contrary, the method is not reliable, and therefore not recommended, for very precise costs’ calculations. <br>
-        <br>
-        - <strong>ACKNOWLEDGMENT</strong></p>
-        <p>I particularly would like to thank the Associate Research Professor, Ph.D. Peter Leisner (Technical University of Denmark) for his kind availability and for his precious advice.- </p>
-        <p><strong>REFERENCES</strong></p>
-        <p>1. "<em>Empirical calculation of the surface area of an object,</em> Andrea Mazzilli [&amp; Torben Lenau 1996"</p>
-        <p>2. "<em>Design inSite,</em> the designer's guide to manufacturing". Internet link: &lt;http://www.ipt.dtu.dk/~tl/inspsite/htmsider/home.htm&gt;.<br>
-        Design inSite is the designers' guide to manufacturing. Various manufacturing processes and materials are described as well as the products where they are used. The purpose of Design inSite is to inspire 
-        designers in their designwork to consider materials and processes which are new or unknown to them. By being aware of the new possibilities already in an early stage of the development process, new and 
-        innovative products will emerge.</p>
-        <p>3.<font size="3"> "<em>Tabellen und Betriebsdaten für die Galvanotechnik</em>, Eugen G. Leuze Verlag - Saulgau (Whrtt.)".</font></p>
-        <p><font size="3">4. <em>The London Metal Exchange</em> or "<em>LME</em>" is a Recognised Investment Exchange pursuant to ScheduleIV of the Financial Services Act 1986. This web-site contains some information about what theLME 
-        does. Internet link: &lt;http://www.Ime.co.uk/ARCHIVE/MPrices.htm&gt;.</font></p>
-        <p><font size="3">5. "<em>Metals-Finishing.Com</em>", company dealing with metal finishing. Internet link: &lt;http://www.metal-finishing.com&gt;.</font></p>
-        <p><font size="3">6. "<em>Trelleborg AB</em>". Trellborg AB is a Swedish company in which operations are structurally organised in three Business Sectors: Mines &amp; Metals, Rubber Products and Distribution. These Business 
-        Sectors are described in detail on the company home page. Internet link: &lt;http://www.trellgroup.se/trellgroup/TGE.html&gt;.</font></p>
-        <p><font size="3">7. "<em>Kompendium over lektionerne i kursus 8007 Avanceret Overfladeteknologi efterårsemester 1993, </em>Procesteknisk Institut, Denmarks Tekniske Universitet (DTU)".</font> <br>
+            <br>
+            The examples exposed are used to show how this simplified method for estimating the cost of electroplating
+            processes can be used. <br>
+            The method doesn’t aim to provide precise values, which can enable a very precise calculation of the
+            costs.<br>
+            Indeed it aims to be easily understood and used, providing a quick way to get ideas about possible magnitude
+            orders of electroplating cost of a part, and therefore supplying with data which enables a
+            comparison with alternative solutions, already in the early phase of the design stage.<br>
+            If considered from this point of view all the approximations and the average considerations contained in it,
+            don’t decrease its meaningfulness, and the method con be a valid aid for overall considerations on
+            the costs involved in electroplating.<br>
+            On the contrary, the method is not reliable, and therefore not recommended, for very precise costs’
+            calculations. <br>
+            <br>
+            - <strong>ACKNOWLEDGMENT</strong>
         </p>
-        
-        
-        
-        
-</div>
+        <p>I particularly would like to thank the Associate Research Professor, Ph.D. Peter Leisner (Technical
+            University of Denmark) for his kind availability and for his precious advice.- </p>
+        <p><strong>REFERENCES</strong></p>
+        <p>1. "<em>Empirical calculation of the surface area of an object,</em> Andrea Mazzilli [&amp; Torben Lenau
+            1996"</p>
+        <p>2. "<em>Design inSite,</em> the designer's guide to manufacturing". Internet link:
+            &lt;http://www.ipt.dtu.dk/~tl/inspsite/htmsider/home.htm&gt;.<br>
+            Design inSite is the designers' guide to manufacturing. Various manufacturing processes and materials are
+            described as well as the products where they are used. The purpose of Design inSite is to inspire
+            designers in their designwork to consider materials and processes which are new or unknown to them. By being
+            aware of the new possibilities already in an early stage of the development process, new and
+            innovative products will emerge.</p>
+        <p>3.<font size="3"> "<em>Tabellen und Betriebsdaten für die Galvanotechnik</em>, Eugen G. Leuze Verlag -
+                Saulgau (Whrtt.)".</font>
+        </p>
+        <p>
+            <font size="3">4. <em>The London Metal Exchange</em> or "<em>LME</em>" is a Recognised Investment Exchange
+                pursuant to ScheduleIV of the Financial Services Act 1986. This web-site contains some information about
+                what theLME
+                does. Internet link: &lt;http://www.Ime.co.uk/ARCHIVE/MPrices.htm&gt;.</font>
+        </p>
+        <p>
+            <font size="3">5. "<em>Metals-Finishing.Com</em>", company dealing with metal finishing. Internet link:
+                &lt;http://www.metal-finishing.com&gt;.</font>
+        </p>
+        <p>
+            <font size="3">6. "<em>Trelleborg AB</em>". Trellborg AB is a Swedish company in which operations are
+                structurally organised in three Business Sectors: Mines &amp; Metals, Rubber Products and Distribution.
+                These Business
+                Sectors are described in detail on the company home page. Internet link:
+                &lt;http://www.trellgroup.se/trellgroup/TGE.html&gt;.</font>
+        </p>
+        <p>
+            <font size="3">7. "<em>Kompendium over lektionerne i kursus 8007 Avanceret Overfladeteknologi
+                    efterårsemester 1993, </em>Procesteknisk Institut, Denmarks Tekniske Universitet (DTU)".</font> <br>
+        </p>
+
+
+
+
+    </div>
 
 </body>
+
 </html>
-
-
